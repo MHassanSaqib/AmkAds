@@ -6,7 +6,6 @@ const quickLinks = {
   Company: [
     { label: 'About AmkAds', href: '#home' },
     { label: 'Our Services',  href: '#services' },
-    { label: 'Tech Tools',    href: '#tools' },
     { label: 'Portfolio',     href: '#portfolio' },
     { label: 'AmkAds Group',  href: '#group' },
   ],
