@@ -1,0 +1,170 @@
+'use client'
+
+import { Phone, Mail, MapPin, Twitter, Linkedin, Instagram, Facebook, Youtube, ArrowRight } from 'lucide-react'
+
+const quickLinks = {
+  Company: [
+    { label: 'About AmkAds', href: '#home' },
+    { label: 'Our Services',  href: '#services' },
+    { label: 'Tech Tools',    href: '#tools' },
+    { label: 'Portfolio',     href: '#portfolio' },
+    { label: 'AmkAds Group',  href: '#group' },
+  ],
+  Services: [
+    { label: 'Billboard Advertising', href: '#services' },
+    { label: 'Transit Media',         href: '#services' },
+    { label: 'Digital OOH',           href: '#services' },
+    { label: 'Airport Media',         href: '#services' },
+    { label: 'Mall Media',            href: '#services' },
+  ],
+  Contact: [
+    { label: '+92 21 3456 7890', href: 'tel:+922134567890' },
+    { label: 'hello@amkads.com', href: 'mailto:hello@amkads.com' },
+    { label: 'Karachi, Pakistan', href: '#' },
+  ],
+}
+
+const socials = [
+  { icon: Twitter,   href: '#', label: 'Twitter'   },
+  { icon: Linkedin,  href: '#', label: 'LinkedIn'  },
+  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Facebook,  href: '#', label: 'Facebook'  },
+  { icon: Youtube,   href: '#', label: 'YouTube'   },
+]
+
+const contactDetails = [
+  { icon: Phone,  text: '+92 21 3456 7890',  href: 'tel:+922134567890' },
+  { icon: Mail,   text: 'hello@amkads.com',  href: 'mailto:hello@amkads.com' },
+  { icon: MapPin, text: 'Karachi, Pakistan', href: '#' },
+]
+
+export default function Footer() {
+  const year = new Date().getFullYear()
+
+  const handleNav = (href: string) => {
+    if (href.startsWith('#')) {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <footer className="relative bg-brand-navyLight border-t border-white/5 overflow-hidden">
+      {/* Glow */}
+      <div className="glow-orb w-[400px] h-[400px] bg-brand-blue/6 top-0 left-1/2 -translate-x-1/2" />
+
+      {/* ── Top CTA Bar ── */}
+      <div className="relative z-10 bg-gradient-to-r from-brand-blue/20 via-brand-blue/10 to-brand-amber/10 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 className="font-outfit font-bold text-white text-xl">
+              Ready to launch your next OOH campaign?
+            </h3>
+            <p className="text-slate-400 text-sm mt-1">
+              Speak to our media specialists today.
+            </p>
+          </div>
+          <button
+            onClick={() => handleNav('#contact')}
+            className="btn-secondary flex-shrink-0 flex items-center gap-2"
+          >
+            Get Started Now
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* ── Main Footer ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+
+          {/* Brand Column */}
+          <div className="lg:col-span-2">
+            <button onClick={() => handleNav('#home')} className="flex items-center gap-2 mb-4">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-blue to-brand-amber flex items-center justify-center">
+                <span className="text-white font-outfit font-black text-sm">A</span>
+              </div>
+              <span className="font-outfit font-extrabold text-xl">
+                <span className="text-white">Amk</span>
+                <span className="bg-gradient-to-r from-brand-amber to-brand-amberDark bg-clip-text text-transparent">Ads</span>
+              </span>
+            </button>
+
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
+              Pakistan&apos;s leading Out-of-Home media agency — delivering nationwide billboard,
+              transit, digital, and airport advertising solutions with cutting-edge planning technology.
+            </p>
+
+            {/* Contact details */}
+            <div className="space-y-3 mb-6">
+              {contactDetails.map(({ icon: Icon, text, href }) => (
+                <a
+                  key={text}
+                  href={href}
+                  className="flex items-center gap-2.5 text-slate-400 hover:text-brand-blueLight text-sm transition-colors duration-200"
+                >
+                  <Icon className="w-4 h-4 text-brand-blue flex-shrink-0" />
+                  {text}
+                </a>
+              ))}
+            </div>
+
+            {/* Socials */}
+            <div className="flex items-center gap-2">
+              {socials.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-blue/20 hover:border-brand-blue/30 transition-all duration-200"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Links Columns */}
+          {Object.entries(quickLinks).map(([heading, links]) => (
+            <div key={heading}>
+              <h4 className="font-outfit font-bold text-white text-sm uppercase tracking-widest mb-4">
+                {heading}
+              </h4>
+              <ul className="space-y-2.5">
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      href={href.startsWith('#') ? href : href}
+                      onClick={(e) => {
+                        if (href.startsWith('#')) {
+                          e.preventDefault()
+                          handleNav(href)
+                        }
+                      }}
+                      className="text-slate-400 hover:text-brand-blueLight text-sm transition-colors duration-200 hover:translate-x-1 inline-flex items-center gap-1 group"
+                    >
+                      <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-brand-blue">›</span>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Bottom Bar ── */}
+        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-slate-600 text-sm">
+            © {year} AmkAds. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6 text-slate-600 text-sm">
+            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-slate-400 transition-colors">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
