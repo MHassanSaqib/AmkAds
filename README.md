@@ -1,5 +1,7 @@
 # AmkAds — OOH Advertising Agency Website
 
+[![Deploy Status](https://img.shields.io/badge/Deployed%20to-Cloudflare%20Pages-blue.svg)](https://amkads.pages.dev)
+
 A modern, fully responsive **Next.js 14** (App Router) website for **AmkAds**, Pakistan's leading Out-of-Home (OOH) media and advertising agency.
 
 ## Tech Stack
