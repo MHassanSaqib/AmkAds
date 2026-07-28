@@ -80,12 +80,21 @@ body {
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold font-outfit text-white leading-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-outfit text-white leading-tight;
   }
 
   .section-subtitle {
     @apply text-brand-muted text-lg max-w-2xl mx-auto;
   }
+}
+
+/* ─── Scrollbar hide utility ─── */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* ─── Ticker Tape (logo slider) ─── */

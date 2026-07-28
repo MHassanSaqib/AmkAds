@@ -51,7 +51,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-10">
           {/* Contact Info */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             {contactInfo.map(({ icon: Icon, label, value, href }) => (
@@ -92,7 +92,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-3 glass-card p-8">
+          <div className="lg:col-span-3 glass-card p-5 sm:p-8">
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full py-12 text-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-brand-blue/15 flex items-center justify-center mb-2">

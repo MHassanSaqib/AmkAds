@@ -69,30 +69,32 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs — horizontally scrollable on mobile */}
         <div
-          className={`flex flex-wrap justify-center gap-2 mb-10 transition-all duration-700 ${
+          className={`mb-8 sm:mb-10 transition-all duration-700 ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                activeFilter === cat
-                  ? 'bg-brand-blue text-white shadow-glow-blue'
-                  : 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          <div className="flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible scrollbar-none">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`flex-shrink-0 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                  activeFilter === cat
+                    ? 'bg-brand-blue text-white shadow-glow-blue'
+                    : 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Brand Logo Grid */}
         <div
-          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 transition-all duration-500 ${
+          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-10 sm:mb-12 transition-all duration-500 ${
             visible ? 'opacity-100' : 'opacity-0'
           }`}
         >

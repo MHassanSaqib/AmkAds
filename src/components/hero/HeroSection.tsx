@@ -71,33 +71,33 @@ export default function HeroSection() {
         />
       ))}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
         {/* ── Pre-label ── */}
         <div
-          className={`flex justify-center mb-8 transition-all duration-700 ${
+          className={`flex justify-center mb-6 sm:mb-8 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="section-label">
-            <Zap className="w-3.5 h-3.5 fill-brand-blueLight" />
+          <div className="section-label text-xs sm:text-sm px-3 sm:px-4 text-center">
+            <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-brand-blueLight flex-shrink-0" />
             Pakistan&apos;s Premier OOH Advertising Agency
           </div>
         </div>
 
         {/* ── Headline ── */}
         <div
-          className={`text-center mb-6 transition-all duration-700 delay-150 ${
+          className={`text-center mb-5 sm:mb-6 transition-all duration-700 delay-150 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h1 className="font-outfit font-black text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight text-white">
+          <h1 className="font-outfit font-black text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[1.1] sm:leading-[1.05] tracking-tight text-white">
             Leading{' '}
             <span className="bg-gradient-to-r from-brand-blueLight via-blue-400 to-brand-blue bg-clip-text text-transparent">
               Out of Home
             </span>
             <br />
             <span className="bg-gradient-to-r from-brand-amber via-orange-400 to-brand-amberDark bg-clip-text text-transparent">
-              Media & Advertising
+              Media &amp; Advertising
             </span>
             <br />
             Agency
@@ -106,11 +106,11 @@ export default function HeroSection() {
 
         {/* ── Subtitle ── */}
         <div
-          className={`text-center mb-10 transition-all duration-700 delay-300 ${
+          className={`text-center mb-8 sm:mb-10 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-2">
             Nationwide presence across{' '}
             <span className="text-brand-blueLight font-semibold">50+ cities</span>,
             cutting-edge planning toolkits, and end-to-end campaign management —
@@ -120,29 +120,29 @@ export default function HeroSection() {
 
         {/* ── CTA Buttons ── */}
         <div
-          className={`flex flex-col sm:flex-row gap-4 justify-center mb-20 transition-all duration-700 delay-500 ${
+          className={`flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-16 lg:mb-20 transition-all duration-700 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <button
             onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary text-base px-8 py-4 shadow-glow-blue"
+            className="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 shadow-glow-blue w-full sm:w-auto justify-center"
           >
             Explore Services
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-secondary text-base px-8 py-4 shadow-glow-amber"
+            className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 shadow-glow-amber w-full sm:w-auto justify-center"
           >
             Hire Us Now
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
 
         {/* ── Pillar Cards ── */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 transition-all duration-700 delay-700 ${
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 transition-all duration-700 delay-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
