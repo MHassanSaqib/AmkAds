@@ -108,13 +108,14 @@ export default function PortfolioSection() {
               className="glass-card p-4 flex flex-col items-center justify-center gap-3 group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-300 aspect-square"
               style={{ transitionDelay: `${i * 30}ms` }}
             >
-              <div className="h-16 flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 w-full mb-2 bg-white rounded-md p-3 shadow-sm">
+              <div className="h-16 w-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 mb-2 bg-white rounded-md p-3 shadow-sm aspect-video">
                 <Image 
                   src={brand.logo} 
                   alt={brand.name}
                   width={150}
                   height={80}
-                  className="max-h-12 w-auto object-contain"
+                  style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
+                  className="w-auto h-auto"
                 />
               </div>
               <span className="text-slate-300 text-sm font-semibold text-center group-hover:text-white transition-colors">
