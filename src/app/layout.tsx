@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     description: 'End-to-end outdoor media planning, buying & analytics.',
     type: 'website',
   },
+  icons: {
+    icon: '/favicon.png',
+  }
 }
 
 export default function RootLayout({

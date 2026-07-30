@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { Phone, Mail, MapPin, Send, CheckCircle2, ArrowRight } from 'lucide-react'
 
 const contactInfo = [
-  { icon: Phone, label: 'Call Us',      value: '+92 21 3456 7890',    href: 'tel:+922134567890' },
+  { icon: Phone, label: 'Call Us',      value: '0339-192-0339',    href: 'tel:03391920339' },
   { icon: Mail,  label: 'Email Us',     value: 'hello@amkads.com',   href: 'mailto:hello@amkads.com' },
-  { icon: MapPin, label: 'Head Office', value: 'Karachi, Pakistan',  href: '#' },
+  { icon: MapPin, label: 'Head Office', value: 'Building No. 39, Wocland Society, Opposite Al-Fateh, Pine Avenue Road, Lahore, Pakistan.',  href: '#' },
 ]
 
 export default function ContactSection() {
@@ -71,9 +71,9 @@ export default function ContactSection() {
               </a>
             ))}
 
-            {/* Why AmkAds */}
+            {/* Why AMK ADS */}
             <div className="glass-card p-6 flex-grow">
-              <h3 className="font-outfit font-bold text-white text-lg mb-4">Why AmkAds?</h3>
+              <h3 className="font-outfit font-bold text-white text-lg mb-4">Why AMK ADS?</h3>
               <ul className="space-y-3">
                 {[
                   'Nationwide OOH inventory in 50+ cities',

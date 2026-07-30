@@ -5,9 +5,9 @@ import { MapPin, TrendingUp, Users, Monitor } from 'lucide-react'
 
 const stats = [
   { icon: MapPin,     label: 'Cities Covered',      end: 50,   suffix: '+',  color: 'blue'  },
-  { icon: Monitor,    label: 'Active Billboards',    end: 2400, suffix: '+',  color: 'amber' },
+  { icon: Monitor,    label: 'Active Billboards',    end: 2000, suffix: '+',  color: 'amber' },
   { icon: TrendingUp, label: 'Successful Campaigns', end: 850,  suffix: '+',  color: 'blue'  },
-  { icon: Users,      label: 'Active Clients',       end: 320,  suffix: '+',  color: 'amber' },
+  { icon: Users,      label: 'Active Clients',       end: 100,  suffix: '+',  color: 'amber' },
 ]
 
 const cities = [

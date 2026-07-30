@@ -4,10 +4,10 @@ import { Phone, Mail, MapPin, Twitter, Linkedin, Instagram, Facebook, Youtube, A
 
 const quickLinks = {
   Company: [
-    { label: 'About AmkAds', href: '#home' },
+    { label: 'About AMK ADS', href: '#home' },
     { label: 'Our Services',  href: '#services' },
     { label: 'Portfolio',     href: '#portfolio' },
-    { label: 'AmkAds Group',  href: '#group' },
+    { label: 'AMK ADS Group',  href: '#group' },
   ],
   Services: [
     { label: 'Billboard Advertising', href: '#services' },
@@ -17,9 +17,9 @@ const quickLinks = {
     { label: 'Mall Media',            href: '#services' },
   ],
   Contact: [
-    { label: '+92 21 3456 7890', href: 'tel:+922134567890' },
+    { label: '0339-192-0339', href: 'tel:03391920339' },
     { label: 'hello@amkads.com', href: 'mailto:hello@amkads.com' },
-    { label: 'Karachi, Pakistan', href: '#' },
+    { label: 'Building No. 39, Wocland Society, Opposite Al-Fateh, Pine Avenue Road, Lahore, Pakistan.', href: '#' },
   ],
 }
 
@@ -32,9 +32,9 @@ const socials = [
 ]
 
 const contactDetails = [
-  { icon: Phone,  text: '+92 21 3456 7890',  href: 'tel:+922134567890' },
+  { icon: Phone,  text: '0339-192-0339',  href: 'tel:03391920339' },
   { icon: Mail,   text: 'hello@amkads.com',  href: 'mailto:hello@amkads.com' },
-  { icon: MapPin, text: 'Karachi, Pakistan', href: '#' },
+  { icon: MapPin, text: 'Building No. 39, Wocland Society, Opposite Al-Fateh, Pine Avenue Road, Lahore, Pakistan.', href: '#' },
 ]
 
 export default function Footer() {
@@ -79,14 +79,8 @@ export default function Footer() {
 
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <button onClick={() => handleNav('#home')} className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-blue to-brand-amber flex items-center justify-center">
-                <span className="text-white font-outfit font-black text-sm">A</span>
-              </div>
-              <span className="font-outfit font-extrabold text-xl">
-                <span className="text-white">Amk</span>
-                <span className="bg-gradient-to-r from-brand-amber to-brand-amberDark bg-clip-text text-transparent">Ads</span>
-              </span>
+            <button onClick={() => handleNav('#home')} className="flex items-center justify-center bg-white p-2 rounded-xl mb-4 group transition-all duration-300 hover:shadow-glow-blue">
+              <img src="/logo.png" alt="AMK ADS Logo" className="h-12 object-contain" />
             </button>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
@@ -155,7 +149,7 @@ export default function Footer() {
         {/* ── Bottom Bar ── */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-600 text-sm">
-            © {year} AmkAds. All rights reserved.
+            © {year} AMK ADS. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-slate-600 text-sm">
             <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>

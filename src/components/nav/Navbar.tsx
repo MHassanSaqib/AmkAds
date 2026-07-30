@@ -43,15 +43,9 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <button
             onClick={() => handleNav('#home')}
-            className="flex items-center gap-2 group"
+            className="group flex items-center justify-center bg-white p-1.5 rounded-lg shadow-glow-blue hover:shadow-glow-amber transition-all duration-300"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-blue to-brand-amber flex items-center justify-center shadow-glow-blue group-hover:shadow-glow-amber transition-all duration-300">
-              <span className="text-white font-outfit font-black text-sm">A</span>
-            </div>
-            <span className="font-outfit font-extrabold text-xl tracking-tight">
-              <span className="text-white">Amk</span>
-              <span className="bg-gradient-to-r from-brand-amber to-brand-amberDark bg-clip-text text-transparent">Ads</span>
-            </span>
+            <img src="/logo.png" alt="AMK ADS Logo" className="h-9 object-contain" />
           </button>
 
           {/* ── Desktop Nav ── */}

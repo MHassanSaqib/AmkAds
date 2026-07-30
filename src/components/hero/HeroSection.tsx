@@ -48,10 +48,8 @@ export default function HeroSection() {
     <section
       id="home"
       ref={ref}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-hero-gradient pt-20"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-brand-navy pt-20"
     >
-      {/* ── Background Grid ── */}
-      <div className="absolute inset-0 grid-bg opacity-40" />
 
       {/* ── Glow Orbs ── */}
       <div className="glow-orb w-[600px] h-[600px] bg-brand-blue/20 -top-32 -left-32" />

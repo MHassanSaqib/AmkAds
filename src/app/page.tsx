@@ -5,6 +5,7 @@ import ServicesSection from '@/components/services/ServicesSection'
 import PortfolioSection from '@/components/portfolio/PortfolioSection'
 import GroupSection from '@/components/group/GroupSection'
 import ContactSection from '@/components/contact/ContactSection'
+import AboutSection from '@/components/about/AboutSection'
 import Footer from '@/components/footer/Footer'
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <StatsSection />
+      <AboutSection />
       <ServicesSection />
       <PortfolioSection />
       <GroupSection />
