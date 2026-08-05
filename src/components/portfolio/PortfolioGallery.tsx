@@ -27,7 +27,7 @@ export default function PortfolioGallery() {
         const res = await fetch('/api/portfolio');
         if (res.ok) {
           const data = await res.json();
-          setItems(data);
+          setItems(data as PortfolioMediaType[]);
         }
       } catch (err) {
         console.error("Failed to load portfolio items", err);

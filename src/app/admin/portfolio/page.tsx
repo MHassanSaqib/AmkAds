@@ -42,7 +42,7 @@ export default function AdminPortfolioPage() {
       const res = await fetch('/api/portfolio');
       if (res.ok) {
         const data = await res.json();
-        setItems(data);
+        setItems(data as PortfolioItem[]);
       }
     } catch (err) {
       console.error("Failed to fetch portfolio items", err);
