@@ -49,18 +49,47 @@ export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const fadeIntervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.defaultMuted = true
       videoRef.current.muted = isMuted
+      videoRef.current.volume = 0.85
+    }
+    return () => {
+      if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current)
     }
   }, [])
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
+    if (!videoRef.current) return
+
+    if (isMuted) {
+      // Unmuting: Start from 0 and fade up to 0.85
+      videoRef.current.volume = 0
+      videoRef.current.muted = false
+      setIsMuted(false)
+      
+      if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current)
+      
+      let currentVol = 0
+      const targetVol = 0.85
+      fadeIntervalRef.current = setInterval(() => {
+        if (!videoRef.current) return
+        currentVol += 0.05
+        if (currentVol >= targetVol) {
+          videoRef.current.volume = targetVol
+          if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current)
+        } else {
+          videoRef.current.volume = currentVol
+        }
+      }, 50)
+    } else {
+      // Muting
+      videoRef.current.muted = true
+      setIsMuted(true)
+      if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current)
     }
   }
 
@@ -80,7 +109,25 @@ export default function HeroSection() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── Unobstructed Video Container ── */}
-        <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl mb-16 bg-slate-900 border border-slate-800">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[24px] overflow-hidden shadow-2xl mb-16 bg-slate-900 border border-slate-800">
+          
+          {/* Film Grain Texture Overlay */}
+          <div className="pointer-events-none opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] absolute inset-0 z-10" />
+
+          {/* HTML Text Overlays */}
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4">
+             <img src="/logo.png" alt="AMK ADS Logo" className="w-32 md:w-56 mb-8 drop-shadow-2xl" />
+             <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl tracking-widest drop-shadow-lg text-white mb-3 text-center">
+               OUTDOOR ADVERTISING SERVICES
+             </h2>
+             <p className="text-white/90 text-[10px] md:text-sm lg:text-base tracking-[0.25em] font-medium drop-shadow-md mb-8 text-center uppercase">
+               The Largest Outdoor Media Company In Pakistan
+             </p>
+             <div className="backdrop-blur-md bg-black/30 px-5 md:px-6 py-2 rounded-full border border-white/10 shadow-lg mt-auto mb-12 md:mb-20 pointer-events-auto">
+               <span className="text-white text-xs md:text-sm font-medium tracking-widest">zeeshan.amkads@gmail.com</span>
+             </div>
+          </div>
+
           <video
             ref={videoRef}
             autoPlay
@@ -89,13 +136,17 @@ export default function HeroSection() {
             playsInline
             webkit-playsinline="true"
             preload="metadata"
-            className="w-full h-full object-cover absolute inset-0"
+            style={{ 
+              filter: 'contrast(108%) brightness(102%) saturate(110%)',
+              imageRendering: '-webkit-optimize-contrast' as React.CSSProperties['imageRendering']
+            }}
+            className="w-full h-full object-cover object-center absolute inset-0 z-0"
           >
-            <source src="/Hero-Video/hero-showcase.mp4?v=2.0" type="video/mp4" />
+            <source src="/Hero-Video/hero-showcase.mp4#t=5" type="video/mp4" />
           </video>
 
           {/* Video Controls overlaying ONLY the video */}
-          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-2 sm:gap-3">
+          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-2 sm:gap-3 pointer-events-auto">
             <button 
               onClick={toggleMute} 
               className="bg-slate-900/80 hover:bg-slate-800 text-white font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md flex items-center gap-2 transition border border-white/10"
