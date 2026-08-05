@@ -76,6 +76,8 @@ function TiltCard({ brand, onClick }: { brand: typeof brands[0], onClick: () => 
           alt={brand.name}
           width={200}
           height={100}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
         />
       </div>
@@ -124,7 +126,7 @@ export default function PortfolioSection() {
           className="relative text-center mb-12"
         >
           <div className="absolute top-0 right-0 hidden md:block">
-            <Image src="/logo.png" alt="AMK ADS" width={150} height={64} className="h-16 w-auto object-contain bg-white rounded-xl p-2 shadow-lg" />
+            <Image src="/logo.png" alt="AMK ADS" width={150} height={64} loading="lazy" decoding="async" className="h-16 w-auto object-contain bg-white rounded-xl p-2 shadow-lg" />
           </div>
           
           <div className="section-label mx-auto mb-4 inline-flex">
@@ -231,6 +233,8 @@ export default function PortfolioSection() {
                 alt={selectedBrand.name}
                 width={300}
                 height={200}
+                loading="lazy"
+                decoding="async"
                 className="w-auto h-auto max-h-[200px] object-contain"
               />
               
