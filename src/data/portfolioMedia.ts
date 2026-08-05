@@ -128,5 +128,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Expo Center, Lahore",
     imageSrc: "/portfolio/ieeep-fair-2026.jpg",
     description: "Illuminated nighttime event billboard for IEEEP Fair Industrial Exhibition near Expo Center Lahore."
+  },
+  {
+    id: "study-icon-johar-town",
+    title: "Study ICON - Johar Town Campaign",
+    brand: "Study ICON",
+    type: "ILLUMINATED BILLBOARD",
+    location: "Johar Town, Lahore",
+    imageSrc: "/portfolio/study-icon-johar-town.jpg",
+    description: "Night-time high-visibility billboard display for Study ICON Study Abroad Consultants in Johar Town, Lahore."
   }
 ];
