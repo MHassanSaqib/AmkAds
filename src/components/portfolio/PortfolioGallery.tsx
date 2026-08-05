@@ -1,12 +1,42 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X, ZoomIn } from 'lucide-react';
-import { portfolioMedia, PortfolioMediaType } from '@/data/portfolioMedia';
+import { X, ZoomIn, Loader2 } from 'lucide-react';
+
+// Define the type locally since we are fetching it
+export type PortfolioMediaType = {
+  id: string;
+  title: string;
+  brand: string;
+  type: string;
+  imageSrc: string;
+  description: string;
+  location?: string;
+  created_at?: string;
+};
 
 export default function PortfolioGallery() {
+  const [items, setItems] = useState<PortfolioMediaType[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState<PortfolioMediaType | null>(null);
+
+  useEffect(() => {
+    const fetchPortfolio = async () => {
+      try {
+        const res = await fetch('/api/portfolio');
+        if (res.ok) {
+          const data = await res.json();
+          setItems(data);
+        }
+      } catch (err) {
+        console.error("Failed to load portfolio items", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPortfolio();
+  }, []);
 
   // Close modal when hitting ESC
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -15,10 +45,27 @@ export default function PortfolioGallery() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <Loader2 className="w-12 h-12 text-brand-blue animate-spin" />
+      </div>
+    );
+  }
+
+  if (items.length === 0) {
+    return (
+      <div className="text-center py-20 bg-slate-800/50 rounded-2xl border border-white/5">
+        <h3 className="text-2xl text-slate-300 font-semibold mb-2">No Campaigns Found</h3>
+        <p className="text-slate-500">Check back later to see our latest media campaigns.</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {portfolioMedia.map((item) => (
+        {items.map((item) => (
           <div 
             key={item.id} 
             className="glass-card rounded-xl overflow-hidden group cursor-pointer hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-300"

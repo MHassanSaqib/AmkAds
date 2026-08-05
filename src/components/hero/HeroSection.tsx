@@ -1,9 +1,37 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import { ChevronDown, Play, Pause, Volume2, VolumeX } from 'lucide-react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { Target, ShoppingCart, Palette, BarChart3, Play, Pause, Volume2, VolumeX } from 'lucide-react'
+import { motion } from 'framer-motion'
 import BrandTicker from './BrandTicker'
+
+const pillars = [
+  {
+    icon: Target,
+    title: 'Strategy & Planning',
+    desc: 'Data-driven OOH strategies with audience-first targeting and campaign mapping.',
+    color: 'blue',
+  },
+  {
+    icon: ShoppingCart,
+    title: 'Media Buying & Placement',
+    desc: 'Access to Pakistan\'s largest OOH inventory — billboards, transit, malls & airports.',
+    color: 'amber',
+  },
+  {
+    icon: Palette,
+    title: 'Creative Applications',
+    desc: 'Impactful large-format creative production and 3D anamorphic executions.',
+    color: 'blue',
+  },
+  {
+    icon: BarChart3,
+    title: 'Analytical Reporting',
+    desc: 'Real-time campaign dashboards, impression metrics, and M.O.V.E audience data.',
+    color: 'amber',
+  },
+]
+
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
@@ -21,15 +49,6 @@ export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"]
-  })
-
-  // Parallax shift for the video
-  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
 
   useEffect(() => {
     if (videoRef.current) {
@@ -37,11 +56,6 @@ export default function HeroSection() {
       videoRef.current.muted = isMuted
     }
   }, [])
-
-  const handleScroll = () => {
-    const el = document.querySelector('#services')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -62,107 +76,104 @@ export default function HeroSection() {
   }
 
   return (
-    <section
-      id="home"
-      ref={sectionRef}
-      className="w-full min-h-screen relative overflow-hidden bg-brand-navy flex flex-col"
-    >
-      {/* ── Full Bleed Background Video with Parallax ── */}
-      <motion.div style={{ y: videoY }} className="absolute inset-0 z-0 w-full h-[120%] -top-[10%] bg-slate-950">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="object-cover w-full h-full absolute inset-0 z-0"
-        >
-          <source src="/Hero-Video/hero-showcase.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
-
-      {/* ── Subtle Top Gradient Scrim ── */}
-      <div className="absolute inset-0 top-0 h-[40%] bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
-
-      {/* ── Animated particles ── */}
-      {[...Array(6)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-1.5 h-1.5 rounded-full bg-brand-blueLight/60 animate-float z-10 pointer-events-none"
-          style={{
-            left:              `${15 + i * 14}%`,
-            top:               `${20 + (i % 3) * 25}%`,
-            animationDelay:    `${i * 0.8}s`,
-            animationDuration: `${4 + i}s`,
-          }}
-        />
-      ))}
-
-      {/* ── Main Content Container ── */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-start pt-32 sm:pt-40 pb-20 w-full">
+    <section id="home" className="w-full bg-slate-950 pt-28 pb-20 relative">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ── Hero Text & Badges (Staggered Entrance) ── */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="max-w-2xl mt-4 sm:mt-8"
-        >
-          <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 px-4 py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider text-white uppercase mb-6 shadow-xl">
-              <span className="w-2 h-2 rounded-full bg-brand-blueLight animate-pulse" />
-              OOH MEDIA SHOWCASE
-            </div>
+        {/* ── Unobstructed Video Container ── */}
+        <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl mb-16 bg-slate-900 border border-slate-800">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover absolute inset-0"
+          >
+            <source src="/Hero-Video/hero-showcase.mp4" type="video/mp4" />
+          </video>
+
+          {/* Video Controls overlaying ONLY the video */}
+          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-2 sm:gap-3">
+            <button 
+              onClick={toggleMute} 
+              className="bg-slate-900/80 hover:bg-slate-800 text-white font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md flex items-center gap-2 transition border border-white/10"
+            >
+              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              <span className="text-xs sm:text-sm">{isMuted ? 'Sound Off' : 'Sound On'}</span>
+            </button>
+            <button 
+              onClick={togglePlay} 
+              className="bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md text-white border border-white/10 p-2 sm:p-2.5 rounded-full transition flex items-center justify-center"
+            >
+              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 pl-0.5" />}
+            </button>
+          </div>
+        </div>
+
+        {/* ── Content Block Below Video ── */}
+        <div className="max-w-7xl mx-auto flex flex-col gap-12">
+          
+          <motion.div 
+            variants={containerVariants} 
+            initial="hidden" 
+            whileInView="show" 
+            viewport={{ once: true, margin: "-100px" }} 
+            className="flex flex-col items-center text-center"
+          >
+             {/* Badge */}
+             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-slate-900 border border-blue-500/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-blue-400 uppercase mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                OOH MEDIA SHOWCASE
+             </motion.div>
+             
+             {/* Heading */}
+             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+               Elevate Your <br className="hidden sm:block" />
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Brand Presence</span>
+             </motion.h1>
+             
+             {/* Description */}
+             <motion.p variants={itemVariants} className="text-slate-300 md:text-lg max-w-2xl leading-relaxed font-light">
+               Pakistan's premier out-of-home advertising network. We transform high-traffic physical spaces into powerful, data-driven brand experiences.
+             </motion.p>
           </motion.div>
-          
-          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] leading-[1.1] mb-5 font-outfit">
-            Elevate Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-blueLight to-brand-blue">
-              Brand Presence
-            </span>
-          </motion.h1>
-          
-          <motion.p variants={itemVariants} className="text-lg sm:text-xl text-white/95 max-w-2xl mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] font-light">
-            Pakistan's premier out-of-home advertising network. We transform high-traffic physical spaces into powerful, data-driven brand experiences.
-          </motion.p>
-        </motion.div>
+
+          {/* Features Grid */}
+          <motion.div 
+            variants={containerVariants} 
+            initial="hidden" 
+            whileInView="show" 
+            viewport={{ once: true, margin: "-50px" }} 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-4"
+          >
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div 
+                  variants={itemVariants} 
+                  key={pillar.title} 
+                  className="bg-slate-900/80 border border-slate-800 p-6 rounded-xl flex flex-col hover:border-slate-700 hover:bg-slate-800 transition-colors shadow-lg"
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-5 ${
+                    pillar.color === 'blue' 
+                      ? 'bg-blue-500/20 text-blue-400' 
+                      : 'bg-orange-500/20 text-orange-400'
+                  }`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-white font-semibold mb-2">{pillar.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{pillar.desc}</p>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+
+        </div>
       </div>
-
-      <BrandTicker />
-
-      {/* ── Video Controls ── */}
-      <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3">
-        {/* Sound Toggle */}
-        <button
-          onClick={toggleMute}
-          className="bg-black/20 backdrop-blur-md text-white border border-white/20 px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg hover:bg-white/10 transition-all"
-        >
-          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-          <span className="text-sm font-medium">{isMuted ? 'Sound Off' : 'Sound On'}</span>
-        </button>
-
-        {/* Play/Pause */}
-        <button
-          onClick={togglePlay}
-          className="bg-black/20 backdrop-blur-md text-white border border-white/20 p-3 rounded-full hover:bg-white/10 transition shadow-lg flex items-center justify-center group"
-          aria-label={isPlaying ? "Pause video" : "Play video"}
-        >
-          {isPlaying ? <Pause className="w-5 h-5 fill-current opacity-80 group-hover:opacity-100" /> : <Play className="w-5 h-5 fill-current opacity-80 group-hover:opacity-100 pl-0.5" />}
-        </button>
-      </div>
-
-      {/* ── Bottom Curve / Wave Section Transition ── */}
-      <div className="absolute bottom-0 left-0 right-0 z-40 pointer-events-none text-brand-navyLight overflow-hidden leading-none flex">
-        <svg
-          className="w-full h-auto max-h-[80px] min-h-[40px]"
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,120 L1440,120 L1440,40 C1120,120 720,0 0,60 L0,120 Z" fill="currentColor" />
-        </svg>
+      
+      <div className="mt-24">
+        <BrandTicker />
       </div>
     </section>
   )
