@@ -101,5 +101,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Bhati Chowk, Lahore",
     imageSrc: "/portfolio/gofy-lahore-bhati.jpg",
     description: "Prominent rooftop OOH display placement for Gofy Oatmilk Cereal Bar at Bhati Chowk, Lahore."
+  },
+  {
+    id: "gofy-muridke-campaign",
+    title: "Gofy Brand - Muridke Highway Campaign",
+    brand: "GOFY",
+    type: "HIGHWAY BILLBOARD",
+    location: "Muridke, Punjab",
+    imageSrc: "/portfolio/gofy-muridke.jpg",
+    description: "High-visibility roadside billboard placement for Gofy Oatmilk Cereal Bar on GT Road, Muridke."
   }
 ];
