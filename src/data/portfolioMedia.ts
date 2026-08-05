@@ -119,5 +119,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "University Road, Peshawar, KPK",
     imageSrc: "/portfolio/study-icon-peshawar.jpg",
     description: "High-visibility billboard placement for Study ICON Study Abroad Consultants in Peshawar."
+  },
+  {
+    id: "ieeep-fair-2026",
+    title: "IEEEP Fair 2026 - Industrial Mega Exhibition",
+    brand: "IEEEP Fair",
+    type: "ILLUMINATED BILLBOARD",
+    location: "Expo Center, Lahore",
+    imageSrc: "/portfolio/ieeep-fair-2026.jpg",
+    description: "Illuminated nighttime event billboard for IEEEP Fair Industrial Exhibition near Expo Center Lahore."
   }
 ];
