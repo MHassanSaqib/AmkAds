@@ -5,6 +5,7 @@ export type PortfolioMediaType = {
   type: string;
   imageSrc: string;
   description: string;
+  location?: string;
 };
 
 export const portfolioMedia: PortfolioMediaType[] = [
@@ -55,5 +56,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     type: "Billboard",
     imageSrc: "/logos/gofy.png",
     description: "Launch campaign for the latest FMCG product line."
+  },
+  {
+    id: "gofy-multan-campaign",
+    title: "Gofy Brand - Multan Campaign",
+    brand: "GOFY",
+    type: "BILLBOARD",
+    location: "Bosan Road, Block C, Multan",
+    imageSrc: "/portfolio/gofy-multan.jpg",
+    description: "Oatmilk Cereal Bar campaign placed along Bosan Road, Multan."
   }
 ];

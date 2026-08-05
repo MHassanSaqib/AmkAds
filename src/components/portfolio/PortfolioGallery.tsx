@@ -44,7 +44,13 @@ export default function PortfolioGallery() {
                 {item.type}
               </span>
               <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
-              <p className="text-slate-400 text-sm">{brandInfo(item.brand)}</p>
+              <p className="text-slate-400 text-sm mb-1">{brandInfo(item.brand)}</p>
+              {item.location && (
+                <p className="text-slate-500 text-xs flex items-center gap-1 mt-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-orange/70"></span>
+                  {item.location}
+                </p>
+              )}
             </div>
           </div>
         ))}
@@ -87,7 +93,13 @@ export default function PortfolioGallery() {
                 {selectedItem.type}
               </span>
               <h2 className="text-2xl font-bold text-white mb-2">{selectedItem.title}</h2>
-              <p className="text-brand-blue font-medium mb-6">{selectedItem.brand}</p>
+              <p className="text-brand-blue font-medium mb-2">{selectedItem.brand}</p>
+              {selectedItem.location && (
+                <p className="text-slate-400 text-sm mb-6 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-brand-orange/70"></span>
+                  {selectedItem.location}
+                </p>
+              )}
               
               <div className="prose prose-invert prose-sm">
                 <p className="text-slate-300 leading-relaxed">
