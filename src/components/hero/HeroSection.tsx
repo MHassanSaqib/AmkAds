@@ -72,26 +72,41 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
         {/* ── Hero Video ── */}
         <div
-          className={`relative w-full aspect-video md:h-[600px] md:aspect-auto rounded-[20px] sm:rounded-3xl border border-white/10 shadow-2xl shadow-blue-500/10 overflow-hidden mb-10 sm:mb-16 lg:mb-20 transition-all duration-1000 delay-150 ${
+          className={`relative max-w-6xl mx-auto w-full mb-10 sm:mb-16 lg:mb-20 transition-all duration-1000 delay-150 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          {/* Subtle loading skeleton state placeholder */}
-          <div className="absolute inset-0 bg-slate-800/50 animate-pulse -z-10" />
-          
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-          
-          {/* Subtle dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128] via-transparent to-black/40 pointer-events-none" />
+          {/* Ambient Glow */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 to-blue-600/20 rounded-[24px] sm:rounded-[36px] blur-2xl opacity-40 -z-10" />
+
+          {/* Video Container */}
+          <div className="relative w-full aspect-video md:aspect-[21/9] rounded-[20px] sm:rounded-3xl border border-white/15 shadow-2xl overflow-hidden bg-[#0A1128]">
+            {/* Subtle loading skeleton state placeholder */}
+            <div className="absolute inset-0 bg-slate-800/50 animate-pulse -z-10" />
+            
+            {/* Top-Left Brand Badge (Overlaying cropped watermark) */}
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 backdrop-blur-md bg-black/40 border border-white/15 px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-wider text-white/90 uppercase">
+              ● OOH MEDIA SHOWCASE
+            </div>
+
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="relative z-0 w-full h-full object-cover"
+              style={{ transform: 'scale(1.12)', transformOrigin: 'center center' }}
+            >
+              <source src="/hero-video.mp4" type="video/mp4" />
+            </video>
+            
+            {/* Top Gradient Overlay */}
+            <div className="absolute inset-x-0 top-0 h-[20%] bg-gradient-to-b from-[rgba(10,17,40,0.7)] to-transparent pointer-events-none z-10" />
+            
+            {/* Bottom Gradient Overlay */}
+            <div className="absolute inset-x-0 bottom-0 h-[15%] bg-gradient-to-t from-[#0A1128] to-transparent pointer-events-none z-10" />
+          </div>
         </div>
 
         {/* ── Pillar Cards ── */}
