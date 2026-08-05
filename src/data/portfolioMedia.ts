@@ -83,5 +83,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Peshawar, KPK",
     imageSrc: "/portfolio/gofy-kpk-peshawar.jpg",
     description: "Night-time OOH display placement for Gofy Oatmilk Cereal Bar in Peshawar, KPK."
+  },
+  {
+    id: "gofy-kpk-saddar",
+    title: "Gofy Brand - Saddar Road Campaign",
+    brand: "GOFY",
+    type: "OVERHEAD GANTRY",
+    location: "Peshawar Cantt, KPK",
+    imageSrc: "/portfolio/gofy-kpk-saddar.jpg",
+    description: "Prime overhead billboard display for Gofy Oatmilk Cereal Bar along Saddar Road, Peshawar Cantt."
   }
 ];
