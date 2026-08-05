@@ -114,6 +114,47 @@ export default function HeroSection() {
         {/* ── Content Block Below Video ── */}
         <div className="max-w-7xl mx-auto flex flex-col gap-12">
           
+          {/* ── Original Starting Introduction ── */}
+          <motion.div 
+            variants={containerVariants} 
+            initial="hidden" 
+            whileInView="show" 
+            viewport={{ once: true, margin: "-100px" }} 
+            className="flex flex-col items-center text-center mt-4"
+          >
+             {/* Pre-label */}
+             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-slate-900 border border-blue-500/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-blue-400 uppercase mb-6 shadow-xl">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                Pakistan's Premier OOH Advertising Agency
+             </motion.div>
+             
+             {/* Headline */}
+             <motion.h1 variants={itemVariants} className="font-outfit font-black text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight text-white mb-6">
+                Leading{' '}
+                <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-sm">
+                  Out of Home
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent drop-shadow-sm">
+                  Media & Advertising
+                </span>
+                <br />
+                Agency
+             </motion.h1>
+
+             {/* Subtitle */}
+             <motion.p variants={itemVariants} className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10 font-light drop-shadow-md">
+                Nationwide presence across{' '}
+                <span className="text-blue-400 font-semibold">50+ cities</span>,
+                cutting-edge planning toolkits, and end-to-end campaign management —
+                from strategy to execution to analytics.
+             </motion.p>
+             
+             {/* Divider */}
+             <motion.div variants={itemVariants} className="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mb-16 opacity-50"></motion.div>
+          </motion.div>
+
+          {/* ── Showcase Section ── */}
           <motion.div 
             variants={containerVariants} 
             initial="hidden" 
