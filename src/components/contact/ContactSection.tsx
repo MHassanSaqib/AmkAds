@@ -18,13 +18,41 @@ export default function ContactSection() {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => {
+
+    try {
+      // Use the provided API URL, falling back to a default route if necessary
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://amkads-api.nidawasilay.workers.dev'
+      
+      // We'll POST to the base URL or append /api/contact depending on typical worker routing.
+      // Adjust this path if your backend expects a specific route (e.g. /contact or /api/submit)
+      const endpoint = `${apiUrl}/api/contact`
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(form),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        // If the backend returns an error (like 404), it might be a routing issue
+        const errData = await response.json().catch(() => null)
+        console.error('Backend returned an error:', errData || response.statusText)
+        alert('Failed to send message. Please ensure the API route is correct.')
+      }
+    } catch (error) {
+      console.error('Network or fetch error:', error)
+      alert('An error occurred while sending the message. Please try again.')
+    } finally {
       setLoading(false)
-      setSubmitted(true)
-    }, 1200)
+    }
   }
 
   return (
