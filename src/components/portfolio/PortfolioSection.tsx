@@ -68,16 +68,15 @@ function TiltCard({ brand, onClick }: { brand: typeof brands[0], onClick: () => 
       className="glass-card p-4 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-brand-amber/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-colors duration-300 aspect-square group"
     >
       <div 
-        className="w-full min-h-[100px] flex items-center justify-center overflow-hidden mb-2 bg-white rounded-md p-4 shadow-sm"
+        className="w-full h-28 flex items-center justify-center overflow-hidden mb-2 bg-white rounded-xl p-5 shadow-sm"
         style={{ transform: "translateZ(30px)" }}
       >
         <Image 
           src={brand.logo} 
           alt={brand.name}
-          width={150}
+          width={200}
           height={100}
-          style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
-          className="w-auto h-auto transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
         />
       </div>
       <span className="text-slate-300 text-sm font-semibold text-center group-hover:text-white transition-colors" style={{ transform: "translateZ(20px)" }}>
