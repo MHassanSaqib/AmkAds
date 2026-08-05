@@ -92,5 +92,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Peshawar Cantt, KPK",
     imageSrc: "/portfolio/gofy-kpk-saddar.jpg",
     description: "Prime overhead billboard display for Gofy Oatmilk Cereal Bar along Saddar Road, Peshawar Cantt."
+  },
+  {
+    id: "gofy-lahore-bhati",
+    title: "Gofy Brand - Bhati Chowk Campaign",
+    brand: "GOFY",
+    type: "LARGE FORMAT BILLBOARD",
+    location: "Bhati Chowk, Lahore",
+    imageSrc: "/portfolio/gofy-lahore-bhati.jpg",
+    description: "Prominent rooftop OOH display placement for Gofy Oatmilk Cereal Bar at Bhati Chowk, Lahore."
   }
 ];
