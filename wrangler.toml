@@ -5,11 +5,11 @@ compatibility_date = "2024-01-01"
 [placement]
 mode = "smart"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "amkads-portfolio"
-database_id = "LOCAL_DEV_DB"
+#[[d1_databases]]
+#binding = "DB"
+#database_name = "amkads-portfolio"
+#database_id = "0bdbe3d7-c299-4da4-b169-ef4faaf7bf60"
 
-[[r2_buckets]]
-binding = "MEDIA_BUCKET"
-bucket_name = "amkads-media"
+#[[r2_buckets]]
+#binding = "MEDIA_BUCKET"
+#bucket_name = "amkads-media"
