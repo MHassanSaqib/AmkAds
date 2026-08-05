@@ -65,5 +65,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Bosan Road, Block C, Multan",
     imageSrc: "/portfolio/gofy-multan.jpg",
     description: "Oatmilk Cereal Bar campaign placed along Bosan Road, Multan."
+  },
+  {
+    id: "gofy-multan-gulgasht",
+    title: "Gofy Brand - Gulgasht Campaign",
+    brand: "GOFY",
+    type: "BILLBOARD",
+    location: "Gulgasht Colony, Multan",
+    imageSrc: "/portfolio/gofy-multan-gulgasht.jpg",
+    description: "High-impact OOH display placement for Gofy Oatmilk Cereal Bar in Gulgasht Colony, Multan."
   }
 ];
