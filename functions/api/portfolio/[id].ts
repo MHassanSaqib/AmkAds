@@ -48,7 +48,7 @@ export const onRequestDelete: PagesFunction<Env> = async (context) => {
   try {
     // Optional: fetch imageSrc to delete from R2, but keeping it simple for now
     // Or we delete it if it exists.
-    const record = await env.DB.prepare("SELECT imageSrc FROM PortfolioMedia WHERE id = ?").bind(id).first();
+    const record = await env.DB.prepare("SELECT imageSrc FROM PortfolioMedia WHERE id = ?").bind(id).first() as { imageSrc?: string } | null;
     if (record && record.imageSrc && record.imageSrc.startsWith('/media/')) {
        const fileName = record.imageSrc.replace('/media/', '');
        await env.MEDIA_BUCKET.delete(fileName);
