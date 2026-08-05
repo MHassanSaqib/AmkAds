@@ -91,7 +91,7 @@ export default function HeroSection() {
             preload="metadata"
             className="w-full h-full object-cover absolute inset-0"
           >
-            <source src="/Hero-Video/hero-showcase.mp4#t=5" type="video/mp4" />
+            <source src="/Hero-Video/hero-showcase.mp4?v=2.0" type="video/mp4" />
           </video>
 
           {/* Video Controls overlaying ONLY the video */}
