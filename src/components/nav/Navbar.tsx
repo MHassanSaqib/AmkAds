@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Group',     href: '#group' },
   { label: 'Contact',   href: '#contact' },
+  { label: 'Admin',     href: '/admin/portfolio' },
 ]
 
 export default function Navbar() {
@@ -17,6 +18,10 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState('home')
 
   const handleNav = (href: string) => {
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
     setMenuOpen(false)
     setActiveLink(href.replace('#', ''))
     const el = document.querySelector(href)

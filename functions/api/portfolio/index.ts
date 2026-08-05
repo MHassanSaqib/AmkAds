@@ -2,14 +2,13 @@
 
 export interface Env {
   DB: D1Database;
-  MEDIA_BUCKET: R2Bucket;
 }
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const { env } = context;
   try {
     const { results } = await env.DB.prepare(
-      "SELECT * FROM PortfolioMedia ORDER BY created_at DESC"
+      "SELECT * FROM PortfolioMedia ORDER BY displayOrder DESC, created_at DESC"
     ).all();
 
     return Response.json(results);
@@ -28,28 +27,22 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const type = formData.get('type') as string;
     const description = formData.get('description') as string;
     const location = formData.get('location') as string;
-    const imageFile = formData.get('image') as File | null;
-    let imageSrc = formData.get('imageSrc') as string;
+    const imageSrc = formData.get('imageSrc') as string;
+    const altText = formData.get('altText') as string;
+    const displayOrder = parseInt(formData.get('displayOrder') as string) || 0;
+    const isFeatured = formData.get('isFeatured') === 'true' ? 1 : 0;
 
     if (!id || !title || !brand || !type || !description) {
        return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
     }
 
-    if (imageFile && typeof imageFile !== 'string') {
-      const fileName = `${id}-${Date.now()}-${imageFile.name.replace(/\s+/g, '-')}`;
-      await env.MEDIA_BUCKET.put(fileName, await imageFile.arrayBuffer(), {
-         httpMetadata: { contentType: imageFile.type }
-      });
-      imageSrc = `/media/${fileName}`;
-    }
-
     if (!imageSrc) {
-       return new Response(JSON.stringify({ error: "Image is required" }), { status: 400 });
+       return new Response(JSON.stringify({ error: "Image data (imageSrc) is required" }), { status: 400 });
     }
 
     await env.DB.prepare(
-      "INSERT INTO PortfolioMedia (id, title, brand, type, imageSrc, description, location) VALUES (?, ?, ?, ?, ?, ?, ?)"
-    ).bind(id, title, brand, type, imageSrc, description, location || null).run();
+      "INSERT INTO PortfolioMedia (id, title, brand, type, imageSrc, description, location, altText, displayOrder, isFeatured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    ).bind(id, title, brand, type, imageSrc, description, location || null, altText || null, displayOrder, isFeatured).run();
 
     return Response.json({ success: true, id, imageSrc });
   } catch (err: any) {

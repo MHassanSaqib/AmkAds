@@ -13,6 +13,9 @@ export type PortfolioMediaType = {
   imageSrc: string;
   description: string;
   location?: string;
+  altText?: string;
+  displayOrder?: number;
+  isFeatured?: number;
   created_at?: string;
 };
 
@@ -73,13 +76,16 @@ export default function PortfolioGallery() {
           >
             {/* Image Container */}
             <div className="relative aspect-video w-full overflow-hidden bg-slate-900/50 p-6 flex items-center justify-center">
-              <Image 
+              <img 
                 src={item.imageSrc}
-                alt={item.title}
-                width={300}
-                height={200}
+                alt={item.altText || item.title}
                 className="w-auto h-auto max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
               />
+              {item.isFeatured === 1 && (
+                <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-lg z-10 flex items-center gap-1">
+                  ★ Featured
+                </div>
+              )}
               <div className="absolute inset-0 bg-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <ZoomIn className="w-10 h-10 text-white drop-shadow-md" />
               </div>
@@ -124,12 +130,15 @@ export default function PortfolioGallery() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Image */}
-            <div className="flex-1 bg-white/5 p-8 flex items-center justify-center min-h-[300px] md:min-h-[500px]">
-              <Image 
+            <div className="flex-1 bg-white/5 p-8 flex items-center justify-center min-h-[300px] md:min-h-[500px] relative">
+              {selectedItem.isFeatured === 1 && (
+                <div className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-lg z-10 flex items-center gap-1">
+                  ★ Featured
+                </div>
+              )}
+              <img 
                 src={selectedItem.imageSrc}
-                alt={selectedItem.title}
-                width={800}
-                height={600}
+                alt={selectedItem.altText || selectedItem.title}
                 className="w-auto h-auto max-w-full max-h-full object-contain"
               />
             </div>

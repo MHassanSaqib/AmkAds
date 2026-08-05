@@ -2,7 +2,6 @@
 
 export interface Env {
   DB: D1Database;
-  MEDIA_BUCKET: R2Bucket;
 }
 
 export const onRequestPut: PagesFunction<Env> = async (context) => {
@@ -16,24 +15,22 @@ export const onRequestPut: PagesFunction<Env> = async (context) => {
     const type = formData.get('type') as string;
     const description = formData.get('description') as string;
     const location = formData.get('location') as string;
-    const imageFile = formData.get('image') as File | null;
-    let imageSrc = formData.get('imageSrc') as string;
+    const imageSrc = formData.get('imageSrc') as string;
+    const altText = formData.get('altText') as string;
+    const displayOrder = parseInt(formData.get('displayOrder') as string) || 0;
+    const isFeatured = formData.get('isFeatured') === 'true' ? 1 : 0;
 
     if (!title || !brand || !type || !description) {
        return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
     }
 
-    if (imageFile && typeof imageFile !== 'string') {
-      const fileName = `${id}-${Date.now()}-${imageFile.name.replace(/\s+/g, '-')}`;
-      await env.MEDIA_BUCKET.put(fileName, await imageFile.arrayBuffer(), {
-         httpMetadata: { contentType: imageFile.type }
-      });
-      imageSrc = `/media/${fileName}`;
+    if (!imageSrc) {
+       return new Response(JSON.stringify({ error: "Image data (imageSrc) is required" }), { status: 400 });
     }
 
     await env.DB.prepare(
-      "UPDATE PortfolioMedia SET title = ?, brand = ?, type = ?, imageSrc = ?, description = ?, location = ? WHERE id = ?"
-    ).bind(title, brand, type, imageSrc, description, location || null, id).run();
+      "UPDATE PortfolioMedia SET title = ?, brand = ?, type = ?, imageSrc = ?, description = ?, location = ?, altText = ?, displayOrder = ?, isFeatured = ? WHERE id = ?"
+    ).bind(title, brand, type, imageSrc, description, location || null, altText || null, displayOrder, isFeatured, id).run();
 
     return Response.json({ success: true, id, imageSrc });
   } catch (err: any) {
@@ -46,14 +43,6 @@ export const onRequestDelete: PagesFunction<Env> = async (context) => {
   const id = params.id as string;
   
   try {
-    // Optional: fetch imageSrc to delete from R2, but keeping it simple for now
-    // Or we delete it if it exists.
-    const record = await env.DB.prepare("SELECT imageSrc FROM PortfolioMedia WHERE id = ?").bind(id).first() as { imageSrc?: string } | null;
-    if (record && record.imageSrc && record.imageSrc.startsWith('/media/')) {
-       const fileName = record.imageSrc.replace('/media/', '');
-       await env.MEDIA_BUCKET.delete(fileName);
-    }
-
     await env.DB.prepare(
       "DELETE FROM PortfolioMedia WHERE id = ?"
     ).bind(id).run();
