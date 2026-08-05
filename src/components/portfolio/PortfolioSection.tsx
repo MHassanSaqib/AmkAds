@@ -8,8 +8,8 @@ const categories = ['All', 'FMCG', 'Retail', 'Education', 'Real Estate', 'Corpor
 
 const brands = [
   { name: "Interwood", category: "RETAIL", logo: "/logos/interwood.png" },
-  { name: "Surge Group", category: "CORPORATE", logo: "/logos/surge-group.png" },
-  { name: "Oxford Press", category: "EDUCATION", logo: "/logos/oxford-press.png" },
+  { name: "Surge Group", category: "CORPORATE", logo: "/logos/surge.png" },
+  { name: "Oxford Press", category: "EDUCATION", logo: "/logos/oxford.png" },
   { name: "WPS", category: "EDUCATION", logo: "/logos/wps.png" },
   { name: "Pakistan HVACR", category: "CORPORATE", logo: "/logos/hvacr.png" },
   { name: "Samsons", category: "CORPORATE", logo: "/logos/samsons.png" },
@@ -22,9 +22,9 @@ const brands = [
   { name: "Vanya", category: "RETAIL", logo: "/logos/vanya.png" },
   { name: "ONE", category: "RETAIL", logo: "/logos/one.png" },
   { name: "SKANS", category: "EDUCATION", logo: "/logos/skans.png" },
-  { name: "Study Icon", category: "EDUCATION", logo: "/logos/study-icon.png" },
+  { name: "Study Icon", category: "EDUCATION", logo: "/logos/studyicon.png" },
   { name: "AHZ UK", category: "EDUCATION", logo: "/logos/ahz.png" },
-  { name: "Union Developers", category: "CORPORATE", logo: "/logos/union-developers.png" },
+  { name: "Union Developers", category: "CORPORATE", logo: "/logos/union.png" },
   { name: "JKS Cash & Carry", category: "RETAIL", logo: "/logos/jks.png" },
   { name: "GOFY", category: "FMCG", logo: "/logos/gofy.png" }
 ];
