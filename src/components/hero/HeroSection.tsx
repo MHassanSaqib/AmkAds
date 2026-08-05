@@ -96,7 +96,6 @@ export default function HeroSection() {
               playsInline
               preload="auto"
               className="relative z-0 w-full h-full object-cover"
-              style={{ transform: 'scale(1.12)', transformOrigin: 'center center' }}
             >
               <source src="/hero-video.mp4" type="video/mp4" />
             </video>
