@@ -74,5 +74,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Gulgasht Colony, Multan",
     imageSrc: "/portfolio/gofy-multan-gulgasht.jpg",
     description: "High-impact OOH display placement for Gofy Oatmilk Cereal Bar in Gulgasht Colony, Multan."
+  },
+  {
+    id: "gofy-kpk-peshawar",
+    title: "Gofy Brand - KPK Campaign (Peshawar)",
+    brand: "GOFY",
+    type: "BILLBOARD",
+    location: "Peshawar, KPK",
+    imageSrc: "/portfolio/gofy-kpk-peshawar.jpg",
+    description: "Night-time OOH display placement for Gofy Oatmilk Cereal Bar in Peshawar, KPK."
   }
 ];
