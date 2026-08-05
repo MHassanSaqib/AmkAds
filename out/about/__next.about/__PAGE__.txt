@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[14570,["/_next/static/chunks/3_nnxgh2hczqd.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2lan9bzp47jsh.js","/_next/static/chunks/0t66rlrjpw1ev.js"],"default"]
+3:I[95282,["/_next/static/chunks/3_nnxgh2hczqd.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2lan9bzp47jsh.js","/_next/static/chunks/0t66rlrjpw1ev.js"],"default"]
+4:I[24415,["/_next/static/chunks/3_nnxgh2hczqd.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2lan9bzp47jsh.js","/_next/static/chunks/0t66rlrjpw1ev.js"],"default"]
+5:I[97367,["/_next/static/chunks/3_nnxgh2hczqd.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-brand-navy flex flex-col pt-20","children":[["$","$L2",null,{}],["$","div",null,{"className":"flex-grow","children":["$","$L3",null,{}]}],["$","$L4",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/2lan9bzp47jsh.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/0t66rlrjpw1ev.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"yAb9NQfl2-zH8QOVIktmF"}
+7:null
