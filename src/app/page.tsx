@@ -1,5 +1,6 @@
 import Navbar from '@/components/nav/Navbar'
 import HeroSection from '@/components/hero/HeroSection'
+import CapabilitiesSection from '@/components/hero/CapabilitiesSection'
 import StatsSection from '@/components/stats/StatsSection'
 import ServicesSection from '@/components/services/ServicesSection'
 import PortfolioSection from '@/components/portfolio/PortfolioSection'
@@ -13,6 +14,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-brand-navy">
       <Navbar />
       <HeroSection />
+      <CapabilitiesSection />
       <StatsSection />
       <AboutSection />
       <ServicesSection />
