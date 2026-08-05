@@ -110,5 +110,14 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Muridke, Punjab",
     imageSrc: "/portfolio/gofy-muridke.jpg",
     description: "High-visibility roadside billboard placement for Gofy Oatmilk Cereal Bar on GT Road, Muridke."
+  },
+  {
+    id: "study-icon-peshawar",
+    title: "Study ICON - Peshawar Campaign",
+    brand: "Study ICON",
+    type: "LARGE FORMAT BILLBOARD",
+    location: "University Road, Peshawar, KPK",
+    imageSrc: "/portfolio/study-icon-peshawar.jpg",
+    description: "High-visibility billboard placement for Study ICON Study Abroad Consultants in Peshawar."
   }
 ];
