@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Award, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const categories = ['All', 'FMCG', 'Retail', 'Education', 'Real Estate', 'Corporate']
 
@@ -130,13 +131,13 @@ export default function PortfolioSection() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <button
-            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary text-base px-8 py-4"
+          <Link
+            href="/portfolio"
+            className="btn-primary text-base px-8 py-4 inline-flex items-center gap-2"
           >
             View Full Portfolio
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
