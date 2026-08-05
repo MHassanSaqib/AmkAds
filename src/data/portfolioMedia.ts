@@ -10,54 +10,6 @@ export type PortfolioMediaType = {
 
 export const portfolioMedia: PortfolioMediaType[] = [
   {
-    id: "1",
-    title: "Sufi Group - Mega Billboard",
-    brand: "Sufi Group",
-    type: "Billboard",
-    imageSrc: "/logos/sufi.png", // Placeholder image, update with real asset
-    description: "A prominent out-of-home advertising placement designed to maximize brand visibility."
-  },
-  {
-    id: "2",
-    title: "KIPS Education - Digital Campaign",
-    brand: "KIPS Education",
-    type: "Digital Screen",
-    imageSrc: "/logos/kips.png",
-    description: "Digital billboard showcasing latest educational programs to students across the city."
-  },
-  {
-    id: "3",
-    title: "Interwood - Transit Ad",
-    brand: "Interwood",
-    type: "Transit",
-    imageSrc: "/logos/interwood.png",
-    description: "High-impact transit branding covering multiple busy metropolitan routes."
-  },
-  {
-    id: "4",
-    title: "Fruitien - Summer Billboard",
-    brand: "Fruitien",
-    type: "Billboard",
-    imageSrc: "/logos/fruitien.png",
-    description: "Summer promotional campaign for FMCG beverages across major highways."
-  },
-  {
-    id: "5",
-    title: "Union Developers - Prime Location",
-    brand: "Union Developers",
-    type: "Digital Screen",
-    imageSrc: "/logos/union.png",
-    description: "Real estate digital campaign targeting premium investors."
-  },
-  {
-    id: "6",
-    title: "GOFY - Retail Launch",
-    brand: "GOFY",
-    type: "Billboard",
-    imageSrc: "/logos/gofy.png",
-    description: "Launch campaign for the latest FMCG product line."
-  },
-  {
     id: "gofy-multan-campaign",
     title: "Gofy Brand - Multan Campaign",
     brand: "GOFY",
@@ -110,5 +62,32 @@ export const portfolioMedia: PortfolioMediaType[] = [
     location: "Muridke, Punjab",
     imageSrc: "/portfolio/gofy-muridke.jpg",
     description: "High-visibility roadside billboard placement for Gofy Oatmilk Cereal Bar on GT Road, Muridke."
+  },
+  {
+    id: "study-icon-peshawar",
+    title: "Study ICON - Peshawar Campaign",
+    brand: "Study ICON",
+    type: "LARGE FORMAT BILLBOARD",
+    location: "University Road, Peshawar, KPK",
+    imageSrc: "/portfolio/study-icon-peshawar.jpg",
+    description: "High-visibility billboard placement for Study ICON Study Abroad Consultants in Peshawar."
+  },
+  {
+    id: "ieeep-fair-2026",
+    title: "IEEEP Fair 2026 - Industrial Mega Exhibition",
+    brand: "IEEEP Fair",
+    type: "ILLUMINATED BILLBOARD",
+    location: "Expo Center, Lahore",
+    imageSrc: "/portfolio/ieeep-fair-2026.jpg",
+    description: "Illuminated nighttime event billboard for IEEEP Fair Industrial Exhibition near Expo Center Lahore."
+  },
+  {
+    id: "study-icon-johar-town",
+    title: "Study ICON - Johar Town Campaign",
+    brand: "Study ICON",
+    type: "ILLUMINATED BILLBOARD",
+    location: "Johar Town, Lahore",
+    imageSrc: "/portfolio/study-icon-johar-town.jpg",
+    description: "Night-time high-visibility billboard display for Study ICON Study Abroad Consultants in Johar Town, Lahore."
   }
 ];
