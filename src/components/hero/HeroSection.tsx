@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { ChevronDown, Target, ShoppingCart, Palette, BarChart3, Play, Pause } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import BrandTicker from './BrandTicker'
@@ -58,6 +58,13 @@ export default function HeroSection() {
   // Parallax shift for the video
   const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true
+      videoRef.current.muted = true
+    }
+  }, [])
+
   const handleScroll = () => {
     const el = document.querySelector('#services')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -81,7 +88,7 @@ export default function HeroSection() {
       className="w-full min-h-screen relative overflow-hidden bg-brand-navy flex flex-col"
     >
       {/* ── Full Bleed Background Video with Parallax ── */}
-      <motion.div style={{ y: videoY }} className="absolute inset-0 z-0 w-full h-[120%] -top-[10%]">
+      <motion.div style={{ y: videoY }} className="absolute inset-0 z-0 w-full h-[120%] -top-[10%] bg-slate-950">
         <video
           ref={videoRef}
           autoPlay
@@ -89,13 +96,14 @@ export default function HeroSection() {
           loop
           playsInline
           preload="auto"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full absolute inset-0 z-0"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/Hero-Video/hero-showcase.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
       {/* ── Dark Scrim Overlay ── */}
+      <div className="absolute inset-0 bg-black/55 z-10 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent z-10 pointer-events-none" />
 
       {/* ── Animated particles ── */}
