@@ -104,64 +104,81 @@ export default function HeroSection() {
     }
   }
 
-  return (
-    <section id="home" className="w-full bg-slate-950 pt-28 pb-20 relative">
+  return (    <section id="home" className="w-full bg-slate-950 pt-28 pb-20 relative z-0">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ── Unobstructed Video Container ── */}
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[24px] overflow-hidden shadow-2xl mb-16 bg-slate-900 border border-slate-800">
+        {/* ── Unobstructed Video Container Wrapper ── */}
+        <div className="relative mb-16">
           
-          {/* Film Grain Texture Overlay */}
-          <div className="pointer-events-none opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] absolute inset-0 z-10" />
+          {/* Dynamic Ambient Reflection & Lighting */}
+          <div className="absolute -inset-2 bg-blue-500/15 rounded-[32px] blur-3xl -z-10" />
+          
+          {/* Video Bounds Container */}
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[24px] overflow-hidden shadow-2xl bg-slate-900 border border-slate-800">
+            
+            {/* Film Grain Texture Overlay */}
+            <div 
+              className="pointer-events-none absolute inset-0 z-10" 
+              style={{
+                backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0)',
+                backgroundSize: '12px 12px',
+                mixBlendMode: 'overlay',
+                opacity: 0.35
+              }}
+            />
 
-          {/* HTML Text Overlays */}
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4">
-             <img src="/logo.png" alt="AMK ADS Logo" className="w-32 md:w-56 mb-8 drop-shadow-2xl" />
-             <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl tracking-widest drop-shadow-lg text-white mb-3 text-center">
-               OUTDOOR ADVERTISING SERVICES
-             </h2>
-             <p className="text-white/90 text-[10px] md:text-sm lg:text-base tracking-[0.25em] font-medium drop-shadow-md mb-8 text-center uppercase">
-               The Largest Outdoor Media Company In Pakistan
-             </p>
-             <div className="backdrop-blur-md bg-black/30 px-5 md:px-6 py-2 rounded-full border border-white/10 shadow-lg mt-auto mb-12 md:mb-20 pointer-events-auto">
-               <span className="text-white text-xs md:text-sm font-medium tracking-widest">zeeshan.amkads@gmail.com</span>
-             </div>
-          </div>
+            {/* HTML Text Overlays */}
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4">
+               <img src="/logo.png" alt="AMK ADS Logo" className="w-32 md:w-56 mb-8 drop-shadow-2xl" />
+               <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl tracking-widest drop-shadow-lg text-white mb-3 text-center">
+                 OUTDOOR ADVERTISING SERVICES
+               </h2>
+               <p className="text-white/90 text-[10px] md:text-sm lg:text-base tracking-[0.25em] font-medium drop-shadow-md mb-8 text-center uppercase">
+                 The Largest Outdoor Media Company In Pakistan
+               </p>
+               <div className="backdrop-blur-md bg-black/30 px-5 md:px-6 py-2 rounded-full border border-white/10 shadow-lg mt-auto mb-12 md:mb-20 pointer-events-auto">
+                 <span className="text-white text-xs md:text-sm font-medium tracking-widest">zeeshan.amkads@gmail.com</span>
+               </div>
+            </div>
 
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            webkit-playsinline="true"
-            preload="metadata"
-            style={{ 
-              filter: 'contrast(108%) brightness(102%) saturate(110%)',
-              imageRendering: '-webkit-optimize-contrast' as React.CSSProperties['imageRendering']
-            }}
-            className="w-full h-full object-cover object-center absolute inset-0 z-0"
-          >
-            <source src="/Hero-Video/hero-showcase.mp4#t=5" type="video/mp4" />
-          </video>
-
-          {/* Video Controls overlaying ONLY the video */}
-          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-2 sm:gap-3 pointer-events-auto">
-            <button 
-              onClick={toggleMute} 
-              className="bg-slate-900/80 hover:bg-slate-800 text-white font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md flex items-center gap-2 transition border border-white/10"
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              webkit-playsinline="true"
+              preload="metadata"
+              style={{ 
+                filter: 'brightness(112%) contrast(118%) saturate(120%)',
+                imageRendering: '-webkit-optimize-contrast' as React.CSSProperties['imageRendering'],
+                willChange: 'filter',
+                transform: 'translate3d(0, 0, 0)'
+              }}
+              className="w-full h-full object-cover object-center absolute inset-0 z-0"
             >
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-              <span className="text-xs sm:text-sm">{isMuted ? 'Sound Off' : 'Sound On'}</span>
-            </button>
-            <button 
-              onClick={togglePlay} 
-              className="bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md text-white border border-white/10 p-2 sm:p-2.5 rounded-full transition flex items-center justify-center"
-            >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 pl-0.5" />}
-            </button>
+              <source src="/Hero-Video/hero-showcase.mp4?v=2.0" type="video/mp4" />
+            </video>
+
+            {/* Video Controls overlaying ONLY the video */}
+            <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-2 sm:gap-3 pointer-events-auto">
+              <button 
+                onClick={toggleMute} 
+                className="bg-slate-900/80 hover:bg-slate-800 text-white font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md flex items-center gap-2 transition border border-white/10"
+              >
+                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                <span className="text-xs sm:text-sm">{isMuted ? 'Sound Off' : 'Sound On'}</span>
+              </button>
+              <button 
+                onClick={togglePlay} 
+                className="bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md text-white border border-white/10 p-2 sm:p-2.5 rounded-full transition flex items-center justify-center"
+              >
+                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 pl-0.5" />}
+              </button>
+            </div>
           </div>
         </div>
+      </div>
 
         {/* ── Content Block Below Video ── */}
         <div className="max-w-7xl mx-auto flex flex-col gap-12">
