@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, ChevronDown, Target, ShoppingCart, Palette, BarChart3, Zap } from 'lucide-react'
+import { ChevronDown, Target, ShoppingCart, Palette, BarChart3 } from 'lucide-react'
 
 const pillars = [
   {
@@ -70,72 +70,28 @@ export default function HeroSection() {
       ))}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
-        {/* ── Pre-label ── */}
+        {/* ── Hero Video ── */}
         <div
-          className={`flex justify-center mb-6 sm:mb-8 transition-all duration-700 ${
+          className={`relative w-full aspect-video md:h-[600px] md:aspect-auto rounded-[20px] sm:rounded-3xl border border-white/10 shadow-2xl shadow-blue-500/10 overflow-hidden mb-10 sm:mb-16 lg:mb-20 transition-all duration-1000 delay-150 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="section-label text-xs sm:text-sm px-3 sm:px-4 text-center">
-            <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-brand-blueLight flex-shrink-0" />
-            Pakistan&apos;s Premier OOH Advertising Agency
-          </div>
-        </div>
-
-        {/* ── Headline ── */}
-        <div
-          className={`text-center mb-5 sm:mb-6 transition-all duration-700 delay-150 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <h1 className="font-outfit font-black text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[1.1] sm:leading-[1.05] tracking-tight text-white">
-            Leading{' '}
-            <span className="bg-gradient-to-r from-brand-blueLight via-blue-400 to-brand-blue bg-clip-text text-transparent">
-              Out of Home
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-brand-amber via-orange-400 to-brand-amberDark bg-clip-text text-transparent">
-              Media &amp; Advertising
-            </span>
-            <br />
-            Agency
-          </h1>
-        </div>
-
-        {/* ── Subtitle ── */}
-        <div
-          className={`text-center mb-8 sm:mb-10 transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-2">
-            Nationwide presence across{' '}
-            <span className="text-brand-blueLight font-semibold">50+ cities</span>,
-            cutting-edge planning toolkits, and end-to-end campaign management —
-            from strategy to execution to analytics.
-          </p>
-        </div>
-
-        {/* ── CTA Buttons ── */}
-        <div
-          className={`flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-16 lg:mb-20 transition-all duration-700 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <button
-            onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 shadow-glow-blue w-full sm:w-auto justify-center"
+          {/* Subtle loading skeleton state placeholder */}
+          <div className="absolute inset-0 bg-slate-800/50 animate-pulse -z-10" />
+          
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover"
           >
-            Explore Services
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
-          <button
-            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 shadow-glow-amber w-full sm:w-auto justify-center"
-          >
-            Hire Us Now
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Subtle dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128] via-transparent to-black/40 pointer-events-none" />
         </div>
 
         {/* ── Pillar Cards ── */}
