@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import { Layers, Bus, Monitor, Plane, ShoppingBag, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const services = [
   {
@@ -46,26 +46,33 @@ const services = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
 export default function ServicesSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.1 },
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="services" className="relative py-24 bg-brand-navyLight overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-amber/8 top-0 left-0" />
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-amber/8 top-0 left-0 pointer-events-none" />
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <div className="section-label mx-auto mb-4 inline-flex">
             <Layers className="w-3.5 h-3.5" />
             What We Do
@@ -80,19 +87,25 @@ export default function ServicesSection() {
             From classic billboards to cutting-edge digital formats — we offer every
             out-of-home touchpoint your brand needs to dominate the streets.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {services.map((service, i) => {
             const Icon = service.icon
             return (
-              <div
+              <motion.div
                 key={service.title}
+                variants={itemVariants}
                 className={`glass-card p-7 group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-500 flex flex-col ${
-                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                } ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-                style={{ transitionDelay: `${i * 100}ms` }}
+                  i === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
               >
                 {/* Emoji + Icon */}
                 <div className="flex items-center gap-4 mb-5">
@@ -136,10 +149,10 @@ export default function ServicesSection() {
                   Get a Quote
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
                 </button>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

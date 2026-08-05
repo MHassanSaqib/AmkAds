@@ -2,12 +2,26 @@
 
 import { useState } from 'react'
 import { Phone, Mail, MapPin, Send, CheckCircle2, ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const contactInfo = [
   { icon: Phone, label: 'Call Us',      value: '0339-192-0339',    href: 'tel:03391920339' },
   { icon: Mail,  label: 'Email Us',     value: 'hello@amkads.com',   href: 'mailto:hello@amkads.com' },
   { icon: MapPin, label: 'Head Office', value: 'Building No. 39, Wocland Society, Opposite Al-Fateh, Pine Avenue Road, Lahore, Pakistan.',  href: '#' },
 ]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '', service: '' })
@@ -23,11 +37,7 @@ export default function ContactSection() {
     setLoading(true)
 
     try {
-      // Use the provided API URL, falling back to a default route if necessary
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://amkads-api.nidawasilay.workers.dev'
-      
-      // We'll POST to the base URL or append /api/contact depending on typical worker routing.
-      // Adjust this path if your backend expects a specific route (e.g. /contact or /api/submit)
       const endpoint = `${apiUrl}/api/contact`
 
       const response = await fetch(endpoint, {
@@ -42,7 +52,6 @@ export default function ContactSection() {
       if (response.ok) {
         setSubmitted(true)
       } else {
-        // If the backend returns an error (like 404), it might be a routing issue
         const errData = await response.json().catch(() => null)
         console.error('Backend returned an error:', errData || response.statusText)
         alert('Failed to send message. Please ensure the API route is correct.')
@@ -57,12 +66,18 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-24 bg-brand-navy overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/12 top-0 left-1/2 -translate-x-1/2" />
-      <div className="absolute inset-0 grid-bg opacity-20" />
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/12 top-0 left-1/2 -translate-x-1/2 pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <div className="section-label mx-auto mb-4 inline-flex">
             <Send className="w-3.5 h-3.5" />
             Let&apos;s Work Together
@@ -77,13 +92,20 @@ export default function ContactSection() {
             Get in touch with our OOH specialists. We&apos;ll craft a custom media strategy
             tailored to your brand goals and budget.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-10">
           {/* Contact Info */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            className="lg:col-span-2 flex flex-col gap-6"
+          >
             {contactInfo.map(({ icon: Icon, label, value, href }) => (
-              <a
+              <motion.a
+                variants={itemVariants}
                 key={label}
                 href={href}
                 className="glass-card p-6 flex items-center gap-4 group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-300"
@@ -96,11 +118,11 @@ export default function ContactSection() {
                   <p className="text-white font-semibold">{value}</p>
                 </div>
                 <ArrowRight className="w-4 h-4 text-brand-blue ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-              </a>
+              </motion.a>
             ))}
 
             {/* Why AMK ADS */}
-            <div className="glass-card p-6 flex-grow">
+            <motion.div variants={itemVariants} className="glass-card p-6 flex-grow">
               <h3 className="font-outfit font-bold text-white text-lg mb-4">Why AMK ADS?</h3>
               <ul className="space-y-3">
                 {[
@@ -116,11 +138,17 @@ export default function ContactSection() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-3 glass-card p-5 sm:p-8">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-3 glass-card p-5 sm:p-8"
+          >
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full py-12 text-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-brand-blue/15 flex items-center justify-center mb-2">
@@ -234,7 +262,7 @@ export default function ContactSection() {
                 </button>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

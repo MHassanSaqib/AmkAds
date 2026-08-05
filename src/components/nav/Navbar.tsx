@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X, ChevronRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const navLinks = [
   { label: 'Home',      href: '#home' },
@@ -13,14 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen]   = useState(false)
-  const [scrolled, setScrolled]   = useState(false)
   const [activeLink, setActiveLink] = useState('home')
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const handleNav = (href: string) => {
     setMenuOpen(false)
@@ -30,13 +24,7 @@ export default function Navbar() {
   }
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-brand-navy/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-white/5'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/10 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-4">
 
@@ -49,27 +37,35 @@ export default function Navbar() {
           </button>
 
           {/* ── Desktop Nav ── */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleNav(link.href)}
-                className={`nav-link px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeLink === link.href.replace('#', '')
-                    ? 'text-brand-blueLight bg-brand-blue/10'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => {
+              const isActive = activeLink === link.href.replace('#', '')
+              return (
+                <button
+                  key={link.label}
+                  onClick={() => handleNav(link.href)}
+                  className={`relative px-1 py-2 uppercase text-xs tracking-widest font-semibold transition-colors duration-200 ${
+                    isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="underline"
+                      className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-brand-blueLight to-brand-amber rounded-full"
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+              )
+            })}
           </nav>
 
           {/* ── CTA Button ── */}
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => handleNav('#contact')}
-              className="btn-secondary text-sm px-5 py-2.5 flex items-center gap-1.5"
+              className="btn-secondary text-sm px-5 py-2.5 flex items-center gap-1.5 animate-pulse hover:animate-none"
             >
               Speak to Us
               <ChevronRight className="w-4 h-4" />
@@ -107,7 +103,7 @@ export default function Navbar() {
           <div className="pt-2 mt-2 border-t border-white/10">
             <button
               onClick={() => handleNav('#contact')}
-              className="btn-secondary w-full justify-center text-sm"
+              className="btn-secondary w-full justify-center text-sm animate-pulse hover:animate-none"
             >
               Speak to Us
               <ChevronRight className="w-4 h-4" />

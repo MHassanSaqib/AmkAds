@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import { Globe, Brush, Calendar, Briefcase, ArrowRight, Layers } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const ecosystem = [
   {
@@ -42,27 +42,34 @@ const ecosystem = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
 export default function GroupSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.1 },
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="group" className="relative py-24 bg-brand-navyLight overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/8 bottom-0 right-0" />
-      <div className="glow-orb w-[300px] h-[300px] bg-brand-amber/6 top-0 left-0" />
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/8 bottom-0 right-0 pointer-events-none" />
+      <div className="glow-orb w-[300px] h-[300px] bg-brand-amber/6 top-0 left-0 pointer-events-none" />
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <div className="section-label mx-auto mb-4 inline-flex">
             <Layers className="w-3.5 h-3.5" />
             The AmkAds Ecosystem
@@ -77,19 +84,23 @@ export default function GroupSection() {
             AmkAds is more than OOH — we are a full-service communications group
             with specialist arms across digital, creative, events, and corporate branding.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {ecosystem.map((item, i) => {
             const Icon = item.icon
             return (
-              <div
+              <motion.div
                 key={item.title}
-                className={`relative glass-card p-8 group overflow-hidden hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-500 ${
-                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${i * 120}ms` }}
+                variants={itemVariants}
+                className="relative glass-card p-8 group overflow-hidden hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-500"
               >
                 {/* Gradient Accent */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
@@ -146,10 +157,10 @@ export default function GroupSection() {
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
