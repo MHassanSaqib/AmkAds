@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react'
-import { Plus, Edit2, Trash2, X, UploadCloud, Loader2, Search, ArrowUpDown, Star } from 'lucide-react'
+import { Plus, Edit2, Trash2, X, UploadCloud, Loader2, Search, ArrowUpDown, Star, LogOut } from 'lucide-react'
 import toast, { Toaster } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 type PortfolioItem = {
   id: string;
@@ -24,6 +25,7 @@ export default function AdminPortfolioPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<PortfolioItem | null>(null);
   const [isSaving, setIsSaving] = useState(false);
+  const router = useRouter();
 
   // Search & Sort State
   const [searchQuery, setSearchQuery] = useState('');
@@ -46,6 +48,19 @@ export default function AdminPortfolioPage() {
   useEffect(() => {
     fetchItems();
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      const res = await fetch('/api/admin/logout', { method: 'POST' });
+      if (res.ok) {
+        toast.success('Logged out successfully');
+        router.push('/admin/login');
+        router.refresh();
+      }
+    } catch (err) {
+      toast.error('Failed to log out');
+    }
+  };
 
   const fetchItems = async () => {
     try {
@@ -223,13 +238,22 @@ export default function AdminPortfolioPage() {
             <h1 className="text-3xl font-bold text-white mb-2">Portfolio Admin Panel</h1>
             <p className="text-slate-400">Manage your out-of-home advertising campaigns dynamically.</p>
           </div>
-          <button 
-            onClick={() => handleOpenModal()}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors whitespace-nowrap"
-          >
-            <Plus size={20} />
-            Add New Campaign
-          </button>
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => handleOpenModal()}
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors whitespace-nowrap"
+            >
+              <Plus size={20} />
+              Add New Campaign
+            </button>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 text-slate-400 hover:text-white px-4 py-2.5 border border-slate-700 hover:bg-slate-800 rounded-lg text-sm font-medium transition-colors"
+            >
+              <LogOut size={18} />
+              Logout
+            </button>
+          </div>
         </div>
 
         {/* Toolbar: Search and Sort */}

@@ -3,10 +3,11 @@
 import { useState } from 'react'
 import { Phone, Mail, MapPin, Send, CheckCircle2, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
 
 const contactInfo = [
   { icon: Phone, label: 'Call Us',      value: '0339-192-0339',    href: 'tel:03391920339' },
-  { icon: Mail,  label: 'Email Us',     value: 'hello@amkads.com',   href: 'mailto:hello@amkads.com' },
+  { icon: Mail,  label: 'Email Us',     value: 'amk.ads2020@gmail.com',   href: 'mailto:amk.ads2020@gmail.com' },
   { icon: MapPin, label: 'Head Office', value: 'Building No. 39, Wocland Society, Opposite Al-Fateh, Pine Avenue Road, Lahore, Pakistan.',  href: '#' },
 ]
 
@@ -37,8 +38,7 @@ export default function ContactSection() {
     setLoading(true)
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://amkads-api.nidawasilay.workers.dev'
-      const endpoint = `${apiUrl}/api/contact`
+      const endpoint = '/api/contact'
 
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -51,14 +51,16 @@ export default function ContactSection() {
 
       if (response.ok) {
         setSubmitted(true)
+        setForm({ name: '', email: '', company: '', message: '', service: '' })
+        toast.success('Message sent successfully!')
       } else {
         const errData = await response.json().catch(() => null)
         console.error('Backend returned an error:', errData || response.statusText)
-        alert('Failed to send message. Please ensure the API route is correct.')
+        toast.error('Failed to send message. Please ensure the API route is correct.')
       }
     } catch (error) {
       console.error('Network or fetch error:', error)
-      alert('An error occurred while sending the message. Please try again.')
+      toast.error('An error occurred while sending the message. Please try again.')
     } finally {
       setLoading(false)
     }
