@@ -79,6 +79,10 @@ export default function PortfolioGallery() {
               <img 
                 src={item.imageSrc}
                 alt={item.altText || item.title}
+                width={300}
+                height={200}
+                loading="lazy"
+                decoding="async"
                 className="w-auto h-auto max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
               />
               {item.isFeatured === 1 && (
@@ -139,6 +143,10 @@ export default function PortfolioGallery() {
               <img 
                 src={selectedItem.imageSrc}
                 alt={selectedItem.altText || selectedItem.title}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 className="w-auto h-auto max-w-full max-h-full object-contain"
               />
             </div>

@@ -87,10 +87,11 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            preload="auto"
+            webkit-playsinline="true"
+            preload="metadata"
             className="w-full h-full object-cover absolute inset-0"
           >
-            <source src="/Hero-Video/hero-showcase.mp4" type="video/mp4" />
+            <source src="/hero-video.mp4#t=5" type="video/mp4" />
           </video>
 
           {/* Video Controls overlaying ONLY the video */}
@@ -212,7 +213,6 @@ export default function HeroSection() {
 
         </div>
       </div>
-      
       <div className="mt-24">
         <BrandTicker />
       </div>
