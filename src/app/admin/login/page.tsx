@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md bg-slate-800/80 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-700 p-8">
         <div className="text-center mb-8">
           <div className="bg-white/10 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)] p-4 bg-white">
-            <img src="/images/new-amk-ads-logo.png" alt="AMK ADS Logo" className="w-full h-full object-contain" />
+            <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">Admin Access</h1>
           <p className="text-sm text-slate-400">Please sign in to continue to the dashboard</p>

@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     title: 'AmkAds — Leading OOH Advertising Agency',
     description: 'End-to-end outdoor media planning, buying & analytics.',
     type: 'website',
-    images: ['/images/new-amk-ads-logo.png'],
+    images: ['/images/amk-ads-logo-final.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/images/new-amk-ads-logo.png'],
+    images: ['/images/amk-ads-logo-final.png'],
   },
   icons: {
     icon: '/favicon.ico',
