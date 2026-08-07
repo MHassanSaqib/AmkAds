@@ -280,7 +280,6 @@ export default function HeroSection() {
           </motion.div>
 
         </div>
-      </div>
       <div className="mt-24">
         <BrandTicker />
       </div>

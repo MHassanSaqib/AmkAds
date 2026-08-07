@@ -236,7 +236,7 @@ export default function AdminPortfolioPage() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div className="flex items-center gap-4">
             <div className="bg-white p-2 rounded-lg shrink-0 hidden sm:block">
-              <img src="/amk-ads-logo.png" alt="AMK ADS" className="h-10 w-auto object-contain" />
+              <img src="/images/new-amk-ads-logo.png" alt="AMK ADS" className="h-10 w-auto object-contain" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">Portfolio Admin Panel</h1>
