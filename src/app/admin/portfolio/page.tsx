@@ -234,9 +234,14 @@ export default function AdminPortfolioPage() {
       <Toaster position="top-right" toastOptions={{ style: { background: '#1e293b', color: '#fff' } }} />
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Portfolio Admin Panel</h1>
-            <p className="text-slate-400">Manage your out-of-home advertising campaigns dynamically.</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-white p-2 rounded-lg shrink-0 hidden sm:block">
+              <img src="/amk-ads-logo.png" alt="AMK ADS" className="h-10 w-auto object-contain" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-white mb-2">Portfolio Admin Panel</h1>
+              <p className="text-slate-400">Manage your out-of-home advertising campaigns dynamically.</p>
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <button 

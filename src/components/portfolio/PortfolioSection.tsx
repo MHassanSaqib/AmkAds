@@ -126,7 +126,7 @@ export default function PortfolioSection() {
           className="relative text-center mb-12"
         >
           <div className="absolute top-0 right-0 hidden md:block">
-            <Image src="/logo.png" alt="AMK ADS" width={150} height={64} loading="lazy" decoding="async" className="h-16 w-auto object-contain bg-white rounded-xl p-2 shadow-lg" />
+            <Image src="/amk-ads-logo.png" alt="AMK ADS" width={150} height={64} loading="lazy" decoding="async" className="h-16 w-auto object-contain bg-white rounded-xl p-2 shadow-lg" />
           </div>
           
           <div className="section-label mx-auto mb-4 inline-flex">
