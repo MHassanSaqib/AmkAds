@@ -129,7 +129,7 @@ export default function HeroSection() {
 
             {/* HTML Text Overlays */}
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4">
-               <img src="/logo.png" alt="AMK ADS Logo" className="w-32 md:w-56 mb-8 drop-shadow-2xl" />
+               <img src="/images/new-amk-ads-logo.png" alt="AMK ADS Logo" className="w-32 md:w-56 mb-8 drop-shadow-2xl" />
                <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl tracking-widest drop-shadow-lg text-white mb-3 text-center">
                  OUTDOOR ADVERTISING SERVICES
                </h2>
