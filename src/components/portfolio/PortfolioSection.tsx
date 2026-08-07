@@ -125,9 +125,7 @@ export default function PortfolioSection() {
           transition={{ duration: 0.8 }}
           className="relative text-center mb-12"
         >
-          <div className="absolute top-0 right-0 hidden md:block">
-            <Image src="/images/amk-ads-logo-final.png" alt="AMK ADS" width={150} height={64} loading="lazy" decoding="async" className="h-14 md:h-16 w-auto object-contain" />
-          </div>
+
           
           <div className="section-label mx-auto mb-4 inline-flex">
             <Award className="w-3.5 h-3.5" />
