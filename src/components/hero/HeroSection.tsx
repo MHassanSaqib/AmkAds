@@ -127,19 +127,6 @@ export default function HeroSection() {
               }}
             />
 
-            {/* HTML Text Overlays */}
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4">
-               <img src="/images/new-amk-ads-logo.png" alt="AMK ADS Logo" className="w-32 md:w-56 mb-8 drop-shadow-2xl" />
-               <h2 className="font-sans font-bold text-3xl md:text-5xl lg:text-6xl tracking-widest drop-shadow-lg text-white mb-3 text-center">
-                 OUTDOOR ADVERTISING SERVICES
-               </h2>
-               <p className="text-white/90 text-[10px] md:text-sm lg:text-base tracking-[0.25em] font-medium drop-shadow-md mb-8 text-center uppercase">
-                 The Largest Outdoor Media Company In Pakistan
-               </p>
-               <div className="backdrop-blur-md bg-black/30 px-5 md:px-6 py-2 rounded-full border border-white/10 shadow-lg mt-auto mb-12 md:mb-20 pointer-events-auto">
-                 <span className="text-white text-xs md:text-sm font-medium tracking-widest">zeeshan.amkads@gmail.com</span>
-               </div>
-            </div>
 
             <video
               ref={videoRef}
