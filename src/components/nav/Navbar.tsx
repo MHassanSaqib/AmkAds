@@ -29,7 +29,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/10 transition-all duration-500">
+    <header className="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm sticky top-0 z-50 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-4">
 
@@ -38,7 +38,7 @@ export default function Navbar() {
             onClick={() => handleNav('#home')}
             className="group flex items-center justify-center transition-opacity hover:opacity-80 duration-300"
           >
-            <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert drop-shadow-md" />
+            <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain" />
           </button>
 
           {/* ── Desktop Nav ── */}
@@ -50,17 +50,10 @@ export default function Navbar() {
                   key={link.label}
                   onClick={() => handleNav(link.href)}
                   className={`relative px-1 py-2 uppercase text-xs tracking-widest font-semibold transition-colors duration-200 ${
-                    isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                    isActive ? 'text-amber-600 border-b-2 border-amber-600' : 'text-slate-800 hover:text-amber-600'
                   }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="underline"
-                      className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-brand-blueLight to-brand-amber rounded-full"
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
                 </button>
               )
             })}
@@ -70,7 +63,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => handleNav('#contact')}
-              className="btn-secondary text-sm px-5 py-2.5 flex items-center gap-1.5 animate-pulse hover:animate-none"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium shadow-md rounded-lg text-sm px-5 py-2.5 flex items-center gap-1.5 transition-all hover:opacity-90"
             >
               Speak to Us
               <ChevronRight className="w-4 h-4" />
@@ -79,7 +72,7 @@ export default function Navbar() {
 
           {/* ── Mobile Hamburger ── */}
           <button
-            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all"
+            className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -94,21 +87,21 @@ export default function Navbar() {
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-brand-navy/98 backdrop-blur-xl border-t border-white/5 px-4 py-4 flex flex-col gap-1">
+        <div className="bg-white border-t border-slate-200 px-4 py-4 flex flex-col gap-1 shadow-lg">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => handleNav(link.href)}
-              className="w-full text-left px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200 font-medium flex items-center justify-between"
+              className="w-full text-left px-4 py-3 text-slate-700 hover:text-amber-600 hover:bg-slate-50 rounded-xl transition-all duration-200 font-medium flex items-center justify-between"
             >
               {link.label}
-              <ChevronRight className="w-4 h-4 text-brand-blue" />
+              <ChevronRight className="w-4 h-4 text-amber-500" />
             </button>
           ))}
-          <div className="pt-2 mt-2 border-t border-white/10">
+          <div className="pt-2 mt-2 border-t border-slate-100">
             <button
               onClick={() => handleNav('#contact')}
-              className="btn-secondary w-full justify-center text-sm animate-pulse hover:animate-none"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium shadow-md rounded-lg w-full justify-center text-sm px-5 py-3 flex items-center gap-1.5 transition-all hover:opacity-90"
             >
               Speak to Us
               <ChevronRight className="w-4 h-4" />
