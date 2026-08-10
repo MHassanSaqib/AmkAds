@@ -38,7 +38,7 @@ export default function Navbar() {
             onClick={() => handleNav('#home')}
             className="group flex items-center justify-center transition-opacity hover:opacity-80 duration-300"
           >
-            <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert-[0.95] sepia-[0.2] drop-shadow-md" />
+            <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert drop-shadow-md" />
           </button>
 
           {/* ── Desktop Nav ── */}

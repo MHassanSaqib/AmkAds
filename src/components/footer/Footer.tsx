@@ -80,7 +80,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <button onClick={() => handleNav('#home')} className="flex items-center justify-center mb-4 group transition-opacity hover:opacity-80 duration-300 w-fit">
-              <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert drop-shadow-md" />
             </button>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
