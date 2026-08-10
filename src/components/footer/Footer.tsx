@@ -48,18 +48,18 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-brand-navyLight border-t border-white/5 overflow-hidden">
+    <footer className="relative bg-slate-50 border-t border-slate-200 text-slate-900 overflow-hidden">
       {/* Glow */}
       <div className="glow-orb w-[400px] h-[400px] bg-brand-blue/6 top-0 left-1/2 -translate-x-1/2" />
 
       {/* ── Top CTA Bar ── */}
-      <div className="relative z-10 bg-gradient-to-r from-brand-blue/20 via-brand-blue/10 to-brand-amber/10 border-b border-white/5">
+      <div className="relative z-10 bg-gradient-to-r from-brand-blue/5 via-brand-blue/5 to-brand-amber/5 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h3 className="font-outfit font-bold text-white text-xl">
+            <h3 className="font-outfit font-bold text-slate-900 text-xl">
               Ready to launch your next OOH campaign?
             </h3>
-            <p className="text-slate-400 text-sm mt-1">
+            <p className="text-slate-600 text-sm mt-1">
               Speak to our media specialists today.
             </p>
           </div>
@@ -80,10 +80,10 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <button onClick={() => handleNav('#home')} className="flex items-center justify-center mb-4 group transition-opacity hover:opacity-80 duration-300 w-fit">
-              <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert drop-shadow-md" />
+              <img src="/images/amk-ads-logo-final.png" alt="AMK ADS Logo" className="h-10 md:h-12 w-auto object-contain" />
             </button>
 
-            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 max-w-sm">
               Pakistan&apos;s leading Out-of-Home media agency — delivering nationwide billboard,
               transit, digital, and airport advertising solutions with cutting-edge planning technology.
             </p>
@@ -94,9 +94,9 @@ export default function Footer() {
                 <a
                   key={text}
                   href={href}
-                  className="flex items-center gap-2.5 text-slate-400 hover:text-brand-blueLight text-sm transition-colors duration-200"
+                  className="flex items-center gap-2.5 text-slate-700 hover:text-amber-600 text-sm transition-colors duration-200"
                 >
-                  <Icon className="w-4 h-4 text-brand-blue flex-shrink-0" />
+                  <Icon className="w-4 h-4 text-amber-500 flex-shrink-0" />
                   {text}
                 </a>
               ))}
@@ -109,7 +109,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-blue/20 hover:border-brand-blue/30 transition-all duration-200"
+                  className="w-9 h-9 rounded-lg border border-slate-300 text-slate-700 hover:border-amber-500 hover:text-amber-600 bg-white flex items-center justify-center transition-all duration-200 shadow-sm"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -120,7 +120,7 @@ export default function Footer() {
           {/* Links Columns */}
           {Object.entries(quickLinks).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="font-outfit font-bold text-white text-sm uppercase tracking-widest mb-4">
+              <h4 className="text-slate-900 font-bold text-sm tracking-wider uppercase mb-4">
                 {heading}
               </h4>
               <ul className="space-y-2.5">
@@ -134,9 +134,9 @@ export default function Footer() {
                           handleNav(href)
                         }
                       }}
-                      className="text-slate-400 hover:text-brand-blueLight text-sm transition-colors duration-200 hover:translate-x-1 inline-flex items-center gap-1 group"
+                      className="text-slate-600 hover:text-amber-600 text-sm transition-colors duration-200 hover:translate-x-1 inline-flex items-center gap-1 group"
                     >
-                      <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-brand-blue">›</span>
+                      <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-amber-500">›</span>
                       {label}
                     </a>
                   </li>
@@ -147,14 +147,14 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom Bar ── */}
-        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-sm">
+        <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-slate-500 text-xs">
             © {year} AMK ADS. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-slate-600 text-sm">
-            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Cookie Policy</a>
+          <div className="flex items-center gap-6 text-slate-500 text-xs">
+            <a href="#" className="hover:text-slate-800 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-slate-800 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-slate-800 transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
