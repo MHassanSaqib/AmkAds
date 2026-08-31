@@ -9,15 +9,13 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          blue:      '#2563EB',
-          blueDark:  '#1D4ED8',
-          blueLight: '#3B82F6',
-          amber:     '#F97316',
-          amberDark: '#EA580C',
-          navy:      '#0F172A',
-          navyLight: '#1E293B',
-          slate:     '#334155',
-          muted:     '#64748B',
+          black:      '#0D0D0D',
+          white:      '#FFFFFF',
+          orange:     '#F5821F',
+          orangeHover:'#D9701A',
+          greyLight:  '#F7F7F8',
+          greyDark:   '#B3B3B3',
+          greyMedium: '#4D4D4D',
         },
       },
       fontFamily: {
@@ -25,12 +23,12 @@ module.exports = {
         inter:  ['var(--font-inter)',  'sans-serif'],
       },
       backgroundImage: {
-        'hero-gradient':    'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
-        'blue-glow':        'radial-gradient(ellipse at center, rgba(37,99,235,0.15) 0%, transparent 70%)',
-        'card-gradient':    'linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.9) 100%)',
-        'amber-gradient':   'linear-gradient(135deg, #F97316 0%, #EA580C 100%)',
-        'blue-gradient':    'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
-        'section-gradient': 'linear-gradient(180deg, #0F172A 0%, #1E293B 100%)',
+        'hero-gradient':    'linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #0D0D0D 100%)',
+        'orange-glow':      'radial-gradient(ellipse at center, rgba(245,130,31,0.15) 0%, transparent 70%)',
+        'card-gradient':    'linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(13,13,13,0.9) 100%)',
+        'card-light':       'linear-gradient(135deg, #FFFFFF 0%, #F7F7F8 100%)',
+        'orange-gradient':  'linear-gradient(135deg, #F5821F 0%, #D9701A 100%)',
+        'section-gradient': 'linear-gradient(180deg, #0D0D0D 0%, #1A1A1A 100%)',
       },
       animation: {
         'ticker':       'ticker 30s linear infinite',
@@ -50,8 +48,8 @@ module.exports = {
           '50%':      { transform: 'translateY(-20px)' },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(37,99,235,0.3)' },
-          '50%':      { boxShadow: '0 0 40px rgba(37,99,235,0.6)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(245,130,31,0.3)' },
+          '50%':      { boxShadow: '0 0 40px rgba(245,130,31,0.6)' },
         },
         slideUp: {
           '0%':   { opacity: '0', transform: 'translateY(30px)' },
@@ -63,10 +61,9 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow-blue':  '0 0 30px rgba(37,99,235,0.3)',
-        'glow-amber': '0 0 30px rgba(249,115,22,0.3)',
+        'glow-orange': '0 0 30px rgba(245,130,31,0.3)',
         'card':       '0 4px 24px rgba(0,0,0,0.3)',
-        'card-hover': '0 8px 40px rgba(37,99,235,0.2)',
+        'card-hover': '0 8px 40px rgba(245,130,31,0.2)',
       },
     },
   },

@@ -17,8 +17,8 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <section id="about" className="relative py-24 bg-brand-navy overflow-hidden">
-      <div className="glow-orb w-[600px] h-[600px] bg-brand-blue/10 top-0 left-0" />
+    <section id="about" className="relative py-24 bg-brand-black overflow-hidden">
+      <div className="glow-orb w-[600px] h-[600px] bg-brand-orange/10 top-0 left-0" />
       
       <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -28,7 +28,7 @@ export default function AboutSection() {
           </div>
           <h2 className="section-title mb-4">
             Who We{' '}
-            <span className="bg-gradient-to-r from-brand-amber to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
               Are
             </span>
           </h2>
@@ -49,7 +49,7 @@ export default function AboutSection() {
             <p>
               We don&apos;t just execute campaigns; we build partnerships rooted in real-time transparency, creative excellence, and flawless delivery.
             </p>
-            <p className="text-brand-amber font-outfit font-bold text-xl pt-4 border-t border-white/10">
+            <p className="text-brand-orange font-outfit font-bold text-xl pt-4 border-t border-white/10">
               AMK ADS — We Deliver Your Trust.
             </p>
           </div>

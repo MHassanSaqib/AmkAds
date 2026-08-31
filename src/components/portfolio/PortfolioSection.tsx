@@ -65,7 +65,7 @@ function TiltCard({ brand, onClick }: { brand: typeof brands[0], onClick: () => 
       onMouseLeave={handleMouseLeave}
       whileHover={{ scale: 1.05 }}
       onClick={onClick}
-      className="glass-card p-4 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-brand-amber/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-colors duration-300 aspect-square group"
+      className="glass-card p-4 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-brand-orange/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-colors duration-300 aspect-square group"
     >
       <div 
         className="w-full h-28 flex items-center justify-center overflow-hidden mb-2 bg-white rounded-xl p-5 shadow-sm"
@@ -84,7 +84,7 @@ function TiltCard({ brand, onClick }: { brand: typeof brands[0], onClick: () => 
       <span className="text-slate-300 text-sm font-semibold text-center group-hover:text-white transition-colors" style={{ transform: "translateZ(20px)" }}>
         {brand.name}
       </span>
-      <span className="text-brand-blue/60 text-[10px] uppercase tracking-wider" style={{ transform: "translateZ(20px)" }}>
+      <span className="text-brand-orange/60 text-[10px] uppercase tracking-wider" style={{ transform: "translateZ(20px)" }}>
         {brand.category}
       </span>
     </motion.div>
@@ -113,8 +113,8 @@ export default function PortfolioSection() {
     : brands.filter((b) => b.category === activeFilter.toUpperCase())
 
   return (
-    <section id="portfolio" className="relative py-24 bg-brand-navy overflow-hidden">
-      <div className="glow-orb w-[400px] h-[400px] bg-brand-blue/10 top-1/2 right-0 -translate-y-1/2" />
+    <section id="portfolio" className="relative py-24 bg-brand-black overflow-hidden">
+      <div className="glow-orb w-[400px] h-[400px] bg-brand-orange/10 top-1/2 right-0 -translate-y-1/2" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -133,7 +133,7 @@ export default function PortfolioSection() {
           </div>
           <h2 className="section-title mb-4">
             Trusted by{' '}
-            <span className="bg-gradient-to-r from-brand-amber to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
               Leading Brands
             </span>
           </h2>
@@ -157,7 +157,7 @@ export default function PortfolioSection() {
                 onClick={() => setActiveFilter(cat)}
                 className={`flex-shrink-0 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
                   activeFilter === cat
-                    ? 'bg-brand-blue text-white shadow-glow-blue'
+                    ? 'bg-brand-orange text-white shadow-glow-blue'
                     : 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 hover:text-white'
                 }`}
               >
@@ -238,7 +238,7 @@ export default function PortfolioSection() {
               
               <div className="text-center">
                 <h3 className="text-2xl font-outfit font-bold text-slate-900 mb-1">{selectedBrand.name}</h3>
-                <p className="text-brand-blue font-semibold uppercase tracking-widest text-sm">{selectedBrand.category}</p>
+                <p className="text-brand-orange font-semibold uppercase tracking-widest text-sm">{selectedBrand.category}</p>
               </div>
             </motion.div>
           </motion.div>

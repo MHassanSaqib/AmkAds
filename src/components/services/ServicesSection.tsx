@@ -61,8 +61,8 @@ const itemVariants = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-24 bg-brand-navyLight overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-amber/8 top-0 left-0 pointer-events-none" />
+    <section id="services" className="relative py-24 bg-brand-greyLight overflow-hidden">
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-orange/8 top-0 left-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -79,7 +79,7 @@ export default function ServicesSection() {
           </div>
           <h2 className="section-title mb-4">
             Full-Spectrum{' '}
-            <span className="bg-gradient-to-r from-brand-amber to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
               OOH Services
             </span>
           </h2>
@@ -103,7 +103,7 @@ export default function ServicesSection() {
               <motion.div
                 key={service.title}
                 variants={itemVariants}
-                className={`glass-card p-7 group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-500 flex flex-col ${
+                className={`glass-card p-7 group hover:border-brand-orange/30 hover:shadow-card-hover transition-all duration-500 flex flex-col ${
                   i === 4 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >
@@ -113,15 +113,15 @@ export default function ServicesSection() {
                   <div
                     className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 ${
                       service.color === 'blue'
-                        ? 'bg-brand-blue/15 text-brand-blueLight'
-                        : 'bg-brand-amber/15 text-brand-amber'
+                        ? 'bg-brand-orange/15 text-brand-orange'
+                        : 'bg-brand-orange/15 text-brand-orange'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
                 </div>
 
-                <h3 className="font-outfit font-bold text-white text-lg mb-3 group-hover:text-brand-blueLight transition-colors duration-200">
+                <h3 className="font-outfit font-bold text-white text-lg mb-3 group-hover:text-brand-orange transition-colors duration-200">
                   {service.title}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-grow">{service.desc}</p>
@@ -132,7 +132,7 @@ export default function ServicesSection() {
                     <li key={h} className="flex items-center gap-2 text-slate-300 text-xs">
                       <CheckCircle2
                         className={`w-4 h-4 flex-shrink-0 ${
-                          service.color === 'blue' ? 'text-brand-blueLight' : 'text-brand-amber'
+                          service.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
                         }`}
                       />
                       {h}
@@ -143,7 +143,7 @@ export default function ServicesSection() {
                 <button
                   onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className={`flex items-center gap-1.5 text-sm font-semibold mt-auto transition-all duration-200 group/btn ${
-                    service.color === 'blue' ? 'text-brand-blueLight' : 'text-brand-amber'
+                    service.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
                   }`}
                 >
                   Get a Quote

@@ -50,10 +50,10 @@ export default function Footer() {
   return (
     <footer className="relative bg-slate-50 border-t border-slate-200 text-slate-900 overflow-hidden">
       {/* Glow */}
-      <div className="glow-orb w-[400px] h-[400px] bg-brand-blue/6 top-0 left-1/2 -translate-x-1/2" />
+      <div className="glow-orb w-[400px] h-[400px] bg-brand-orange/6 top-0 left-1/2 -translate-x-1/2" />
 
       {/* ── Top CTA Bar ── */}
-      <div className="relative z-10 bg-brand-navyLight bg-gradient-to-r from-brand-blue/20 via-brand-blue/10 to-brand-amber/10 border-b border-slate-200">
+      <div className="relative z-10 bg-brand-greyLight bg-gradient-to-r from-brand-orange/20 via-brand-orange/10 to-brand-orange/10 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="font-outfit font-bold text-white text-xl">

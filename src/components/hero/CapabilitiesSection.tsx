@@ -45,7 +45,7 @@ const itemVariants = {
 
 export default function CapabilitiesSection() {
   return (
-    <section className="w-full bg-brand-navy pt-8 pb-16 relative z-20">
+    <section className="w-full bg-brand-black pt-8 pb-16 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -60,18 +60,18 @@ export default function CapabilitiesSection() {
               <motion.div
                 variants={itemVariants}
                 key={pillar.title}
-                className="bg-black/40 border border-white/10 p-6 rounded-2xl group hover:border-brand-blue/50 hover:bg-black/60 transition-all duration-300 shadow-xl"
+                className="bg-black/40 border border-white/10 p-6 rounded-2xl group hover:border-brand-orange/50 hover:bg-black/60 transition-all duration-300 shadow-xl"
               >
                 <div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 ${
                     pillar.color === 'blue'
-                      ? 'bg-brand-blue/20 text-brand-blueLight'
-                      : 'bg-brand-amber/20 text-brand-amber'
+                      ? 'bg-brand-orange/20 text-brand-orange'
+                      : 'bg-brand-orange/20 text-brand-orange'
                   }`}
                 >
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-outfit font-bold text-white text-base mb-2 group-hover:text-brand-blueLight transition-colors duration-200">
+                <h3 className="font-outfit font-bold text-white text-base mb-2 group-hover:text-brand-orange transition-colors duration-200">
                   {pillar.title}
                 </h3>
                 <p className="text-slate-300 text-sm leading-relaxed">{pillar.desc}</p>

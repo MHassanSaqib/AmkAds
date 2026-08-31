@@ -57,9 +57,9 @@ const itemVariants = {
 
 export default function GroupSection() {
   return (
-    <section id="group" className="relative py-24 bg-brand-navyLight overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/8 bottom-0 right-0 pointer-events-none" />
-      <div className="glow-orb w-[300px] h-[300px] bg-brand-amber/6 top-0 left-0 pointer-events-none" />
+    <section id="group" className="relative py-24 bg-brand-greyLight overflow-hidden">
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-orange/8 bottom-0 right-0 pointer-events-none" />
+      <div className="glow-orb w-[300px] h-[300px] bg-brand-orange/6 top-0 left-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -76,7 +76,7 @@ export default function GroupSection() {
           </div>
           <h2 className="section-title mb-4">
             One Group.{' '}
-            <span className="bg-gradient-to-r from-brand-amber to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
               Every Solution.
             </span>
           </h2>
@@ -100,7 +100,7 @@ export default function GroupSection() {
               <motion.div
                 key={item.title}
                 variants={itemVariants}
-                className="relative glass-card p-8 group overflow-hidden hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-500"
+                className="relative glass-card p-8 group overflow-hidden hover:border-brand-orange/30 hover:shadow-card-hover transition-all duration-500"
               >
                 {/* Gradient Accent */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
@@ -111,15 +111,15 @@ export default function GroupSection() {
                     <div
                       className={`w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 ${
                         item.color === 'blue'
-                          ? 'bg-brand-blue/20 text-brand-blueLight'
-                          : 'bg-brand-amber/20 text-brand-amber'
+                          ? 'bg-brand-orange/20 text-brand-orange'
+                          : 'bg-brand-orange/20 text-brand-orange'
                       }`}
                     >
                       <Icon className="w-7 h-7" />
                     </div>
                     <div>
                       <p className={`text-xs font-bold uppercase tracking-widest mb-0.5 ${
-                        item.color === 'blue' ? 'text-brand-blueLight' : 'text-brand-amber'
+                        item.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
                       }`}>
                         {item.tagline}
                       </p>
@@ -138,8 +138,8 @@ export default function GroupSection() {
                         key={s}
                         className={`text-xs px-3 py-1 rounded-full border ${
                           item.color === 'blue'
-                            ? 'bg-brand-blue/10 border-brand-blue/20 text-brand-blueLight'
-                            : 'bg-brand-amber/10 border-brand-amber/20 text-brand-amber'
+                            ? 'bg-brand-orange/10 border-brand-orange/20 text-brand-orange'
+                            : 'bg-brand-orange/10 border-brand-orange/20 text-brand-orange'
                         }`}
                       >
                         {s}
@@ -150,7 +150,7 @@ export default function GroupSection() {
                   <button
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                     className={`flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group/btn ${
-                      item.color === 'blue' ? 'text-brand-blueLight' : 'text-brand-amber'
+                      item.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
                     }`}
                   >
                     Explore Service

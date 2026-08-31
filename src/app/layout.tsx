@@ -45,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body className="bg-brand-navy text-white antialiased">
+      <body className="bg-brand-black text-white antialiased">
         <CursorGlow />
         {children}
       </body>

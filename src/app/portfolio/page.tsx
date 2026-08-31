@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-slate-900 selection:bg-brand-blue/30 selection:text-brand-blue-light">
+    <div className="min-h-screen bg-slate-900 selection:bg-brand-orange/30 selection:text-brand-orange-light">
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
@@ -25,7 +25,7 @@ export default function PortfolioPage() {
           
           <a 
             href="/admin/portfolio" 
-            className="inline-flex items-center text-sm font-semibold text-brand-orange hover:text-brand-amber transition-colors px-4 py-2 border border-brand-orange/30 rounded-lg hover:bg-brand-orange/10"
+            className="inline-flex items-center text-sm font-semibold text-brand-orange hover:text-brand-orange transition-colors px-4 py-2 border border-brand-orange/30 rounded-lg hover:bg-brand-orange/10"
           >
             Admin Panel
           </a>
@@ -39,7 +39,7 @@ export default function PortfolioPage() {
           {/* Header Section */}
           <div className="max-w-3xl mb-16">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
-              Our Portfolio & <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue-light">Media Gallery</span>
+              Our Portfolio & <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-light">Media Gallery</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl">
               Explore our latest Out-Of-Home (OOH) advertising campaigns, digital screens, and strategic billboard placements across key locations.

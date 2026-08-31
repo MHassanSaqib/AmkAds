@@ -67,8 +67,8 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-24 bg-brand-navy overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/12 top-0 left-1/2 -translate-x-1/2 pointer-events-none" />
+    <section id="contact" className="relative py-24 bg-brand-black overflow-hidden">
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-orange/12 top-0 left-1/2 -translate-x-1/2 pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,7 +86,7 @@ export default function ContactSection() {
           </div>
           <h2 className="section-title mb-4">
             Ready to{' '}
-            <span className="bg-gradient-to-r from-brand-blueLight to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-blue-400 bg-clip-text text-transparent">
               Amplify Your Brand?
             </span>
           </h2>
@@ -110,16 +110,16 @@ export default function ContactSection() {
                 variants={itemVariants}
                 key={label}
                 href={href}
-                className="glass-card p-6 flex items-center gap-4 group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-300"
+                className="glass-card p-6 flex items-center gap-4 group hover:border-brand-orange/30 hover:shadow-card-hover transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-brand-blue/15 text-brand-blueLight flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Icon className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-slate-500 text-xs uppercase tracking-widest mb-0.5">{label}</p>
                   <p className="text-white font-semibold">{value}</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-brand-blue ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-brand-orange ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
               </motion.a>
             ))}
 
@@ -135,7 +135,7 @@ export default function ContactSection() {
                   'Dedicated account managers',
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5 text-slate-400 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-brand-blueLight flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
                     {point}
                   </li>
                 ))}
@@ -153,8 +153,8 @@ export default function ContactSection() {
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full py-12 text-center gap-4">
-                <div className="w-20 h-20 rounded-full bg-brand-blue/15 flex items-center justify-center mb-2">
-                  <CheckCircle2 className="w-10 h-10 text-brand-blueLight" />
+                <div className="w-20 h-20 rounded-full bg-brand-orange/15 flex items-center justify-center mb-2">
+                  <CheckCircle2 className="w-10 h-10 text-brand-orange" />
                 </div>
                 <h3 className="font-outfit font-bold text-white text-2xl">Message Sent!</h3>
                 <p className="text-slate-400">
@@ -180,7 +180,7 @@ export default function ContactSection() {
                     <input
                       type="text" name="name" required value={form.name} onChange={handleChange}
                       placeholder="Your name"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-blue/50 focus:bg-white/8 transition-all duration-200"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-orange/50 focus:bg-white/8 transition-all duration-200"
                     />
                   </div>
                   {/* Email */}
@@ -191,7 +191,7 @@ export default function ContactSection() {
                     <input
                       type="email" name="email" required value={form.email} onChange={handleChange}
                       placeholder="you@company.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-blue/50 focus:bg-white/8 transition-all duration-200"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-orange/50 focus:bg-white/8 transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function ContactSection() {
                   <input
                     type="text" name="company" value={form.company} onChange={handleChange}
                     placeholder="Your company name"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-blue/50 focus:bg-white/8 transition-all duration-200"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-orange/50 focus:bg-white/8 transition-all duration-200"
                   />
                 </div>
 
@@ -215,7 +215,7 @@ export default function ContactSection() {
                   </label>
                   <select
                     name="service" value={form.service} onChange={handleChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-blue/50 transition-all duration-200 text-slate-300"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange/50 transition-all duration-200 text-slate-300"
                     style={{ background: 'rgba(255,255,255,0.05)', color: form.service ? '#cbd5e1' : '#475569' }}
                   >
                     <option value="" disabled style={{ background: '#1E293B' }}>Select a service</option>
@@ -238,7 +238,7 @@ export default function ContactSection() {
                   <textarea
                     name="message" required value={form.message} onChange={handleChange}
                     rows={4} placeholder="Tell us about your campaign goals, budget, and timeline..."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-blue/50 focus:bg-white/8 transition-all duration-200 resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-brand-orange/50 focus:bg-white/8 transition-all duration-200 resize-none"
                   />
                 </div>
 

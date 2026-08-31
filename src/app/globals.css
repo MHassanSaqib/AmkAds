@@ -52,7 +52,7 @@ body {
 /* ─── Glass Card ─── */
 @layer components {
   .glass-card {
-    @apply bg-brand-navyLight/60 backdrop-blur-md border border-white/5 rounded-2xl;
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
   }
 
   .gradient-text {
@@ -64,19 +64,19 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-blue to-brand-blueDark text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-glow-blue hover:scale-105 active:scale-95;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-amber to-brand-amberDark text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-glow-amber hover:scale-105 active:scale-95;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-greyDark text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:border-brand-blue hover:bg-brand-blue/10 hover:scale-105 active:scale-95;
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:border-brand-orange hover:bg-brand-orange/10 hover:scale-105 active:scale-95;
   }
 
   .section-label {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-brand-blueLight text-sm font-semibold tracking-wider uppercase;
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-brand-orange/10 border border-brand-orange/20 rounded-full text-brand-orange text-sm font-semibold tracking-wider uppercase;
   }
 
   .section-title {
@@ -84,7 +84,7 @@ body {
   }
 
   .section-subtitle {
-    @apply text-brand-muted text-lg max-w-2xl mx-auto;
+    @apply text-brand-greyDark text-lg max-w-2xl mx-auto;
   }
 }
 

@@ -45,17 +45,17 @@ function StatCard({
 }: (typeof stats)[0] & { shouldStart: boolean }) {
   const count = useCountUp(end, 2000, shouldStart)
   return (
-    <div className="glass-card p-8 text-center group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-300">
+    <div className="glass-card p-8 text-center group hover:border-brand-orange/30 hover:shadow-card-hover transition-all duration-300">
       <div
         className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 ${
-          color === 'blue' ? 'bg-brand-blue/15 text-brand-blueLight' : 'bg-brand-amber/15 text-brand-amber'
+          color === 'blue' ? 'bg-brand-orange/15 text-brand-orange' : 'bg-brand-orange/15 text-brand-orange'
         }`}
       >
         <Icon className="w-7 h-7" />
       </div>
       <div
         className={`font-outfit font-black text-5xl md:text-6xl mb-2 counter-number ${
-          color === 'blue' ? 'text-brand-blueLight' : 'text-brand-amber'
+          color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
         }`}
       >
         {count.toLocaleString()}{suffix}
@@ -79,9 +79,9 @@ export default function StatsSection() {
   }, [])
 
   return (
-    <section id="reach" className="relative py-24 bg-brand-navyLight overflow-hidden">
+    <section id="reach" className="relative py-24 bg-brand-greyLight overflow-hidden">
       {/* bg accent */}
-      <div className="glow-orb w-[500px] h-[500px] bg-brand-blue/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <div className="glow-orb w-[500px] h-[500px] bg-brand-orange/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -92,7 +92,7 @@ export default function StatsSection() {
           </div>
           <h2 className="section-title mb-4">
             Covering Every Corner of{' '}
-            <span className="bg-gradient-to-r from-brand-blueLight to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-blue-400 bg-clip-text text-transparent">
               Pakistan
             </span>
           </h2>
@@ -112,16 +112,16 @@ export default function StatsSection() {
         {/* City Grid */}
         <div className="glass-card p-8">
           <h3 className="font-outfit font-bold text-white text-xl mb-6 flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-brand-blue" />
+            <MapPin className="w-5 h-5 text-brand-orange" />
             Markets We Operate In
           </h3>
           <div className="flex flex-wrap gap-2.5">
             {cities.map((city) => (
               <span
                 key={city}
-                className="px-4 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-brand-blueLight text-sm font-medium hover:bg-brand-blue/20 hover:border-brand-blue/40 transition-all duration-200 cursor-default"
+                className="px-4 py-1.5 bg-brand-orange/10 border border-brand-orange/20 rounded-full text-brand-orange text-sm font-medium hover:bg-brand-orange/20 hover:border-brand-orange/40 transition-all duration-200 cursor-default"
               >
-                <span className="w-1.5 h-1.5 bg-brand-blueLight rounded-full inline-block mr-2 animate-pulse" />
+                <span className="w-1.5 h-1.5 bg-brand-orange rounded-full inline-block mr-2 animate-pulse" />
                 {city}
               </span>
             ))}

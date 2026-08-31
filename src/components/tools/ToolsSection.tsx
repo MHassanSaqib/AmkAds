@@ -52,9 +52,9 @@ export default function ToolsSection() {
   }, [])
 
   return (
-    <section id="tools" className="relative py-24 bg-brand-navy overflow-hidden">
-      <div className="glow-orb w-[600px] h-[600px] bg-brand-blue/8 top-0 right-0" />
-      <div className="glow-orb w-[400px] h-[400px] bg-brand-amber/5 bottom-0 left-0" />
+    <section id="tools" className="relative py-24 bg-brand-black overflow-hidden">
+      <div className="glow-orb w-[600px] h-[600px] bg-brand-orange/8 top-0 right-0" />
+      <div className="glow-orb w-[400px] h-[400px] bg-brand-orange/5 bottom-0 left-0" />
       <div className="absolute inset-0 grid-bg opacity-20" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,7 +66,7 @@ export default function ToolsSection() {
           </div>
           <h2 className="section-title mb-4">
             Next-Gen OOH Tech &{' '}
-            <span className="bg-gradient-to-r from-brand-blueLight to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-orange to-blue-400 bg-clip-text text-transparent">
               Tracking Solutions
             </span>
           </h2>
@@ -83,7 +83,7 @@ export default function ToolsSection() {
             return (
               <div
                 key={tool.title}
-                className={`glass-card p-8 group hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-500 ${
+                className={`glass-card p-8 group hover:border-brand-orange/30 hover:shadow-card-hover transition-all duration-500 ${
                   visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
@@ -93,8 +93,8 @@ export default function ToolsSection() {
                   <div
                     className={`w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
                       tool.color === 'blue'
-                        ? 'bg-brand-blue/15 text-brand-blueLight'
-                        : 'bg-brand-amber/15 text-brand-amber'
+                        ? 'bg-brand-orange/15 text-brand-orange'
+                        : 'bg-brand-orange/15 text-brand-orange'
                     }`}
                   >
                     <Icon className="w-7 h-7" />
@@ -102,8 +102,8 @@ export default function ToolsSection() {
                   <span
                     className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
                       tool.color === 'blue'
-                        ? 'bg-brand-blue/15 text-brand-blueLight'
-                        : 'bg-brand-amber/15 text-brand-amber'
+                        ? 'bg-brand-orange/15 text-brand-orange'
+                        : 'bg-brand-orange/15 text-brand-orange'
                     }`}
                   >
                     {tool.badge}
@@ -111,7 +111,7 @@ export default function ToolsSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-outfit font-bold text-white text-xl mb-3 group-hover:text-brand-blueLight transition-colors duration-200">
+                <h3 className="font-outfit font-bold text-white text-xl mb-3 group-hover:text-brand-orange transition-colors duration-200">
                   {tool.title}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-5">{tool.desc}</p>
@@ -122,7 +122,7 @@ export default function ToolsSection() {
                     <li key={f} className="flex items-center gap-2 text-slate-400 text-xs">
                       <span
                         className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                          tool.color === 'blue' ? 'bg-brand-blueLight' : 'bg-brand-amber'
+                          tool.color === 'blue' ? 'bg-brand-orange' : 'bg-brand-orange'
                         }`}
                       />
                       {f}
@@ -133,7 +133,7 @@ export default function ToolsSection() {
                 {/* Link */}
                 <button
                   className={`flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group/btn ${
-                    tool.color === 'blue' ? 'text-brand-blueLight' : 'text-brand-amber'
+                    tool.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
                   }`}
                 >
                   Learn More

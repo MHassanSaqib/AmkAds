@@ -1,5 +1,6 @@
-name = "amkads"
-pages_build_output_dir = "out"
+name = "amkads-api"
+main = "src/index.ts"
+account_id = "12b923072f6a458026e1c6e1278a703f"
 compatibility_date = "2024-01-01"
 
 [placement]

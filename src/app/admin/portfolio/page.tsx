@@ -51,7 +51,7 @@ export default function AdminPortfolioPage() {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch('/api/admin/logout', { method: 'POST' });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ""}/api/admin/logout`, { method: 'POST', credentials: 'include' });
       if (res.ok) {
         toast.success('Logged out successfully');
         router.push('/admin/login');
@@ -64,7 +64,7 @@ export default function AdminPortfolioPage() {
 
   const fetchItems = async () => {
     try {
-      const res = await fetch('/api/portfolio');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ""}/api/portfolio`);
       if (res.ok) {
         const data = await res.json();
         setItems(data as PortfolioItem[]);
@@ -172,10 +172,12 @@ export default function AdminPortfolioPage() {
     }
 
     try {
-      const method = editingItem ? 'PUT' : 'POST';
-      const url = editingItem ? `/api/portfolio/${editingItem.id}` : '/api/portfolio';
-      
-      const res = await fetch(url, { method, body: data });
+      const url = editingItem ? `${process.env.NEXT_PUBLIC_API_URL || ""}/api/portfolio/${editingItem.id}` : `${process.env.NEXT_PUBLIC_API_URL || ""}/api/portfolio`;
+      const res = await fetch(url, {
+        method: editingItem ? 'PUT' : 'POST',
+        credentials: 'include',
+        body: data,
+      });
       if (res.ok) {
         toast.success(editingItem ? 'Campaign updated successfully!' : 'Campaign created successfully!');
         await fetchItems();
@@ -196,7 +198,10 @@ export default function AdminPortfolioPage() {
     
     const toastId = toast.loading('Deleting campaign...');
     try {
-      const res = await fetch(`/api/portfolio/${id}`, { method: 'DELETE' });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ""}/api/portfolio/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+      });
       if (res.ok) {
         setItems(items.filter(item => item.id !== id));
         toast.success('Campaign deleted successfully', { id: toastId });

@@ -4,7 +4,7 @@ import Footer from '@/components/footer/Footer'
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-brand-navy flex flex-col pt-20">
+    <main className="min-h-screen bg-brand-black flex flex-col pt-20">
       <Navbar />
       <div className="flex-grow">
         <AboutSection />

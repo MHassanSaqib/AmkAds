@@ -51,7 +51,7 @@ export default function PortfolioGallery() {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-32">
-        <Loader2 className="w-12 h-12 text-brand-blue animate-spin" />
+        <Loader2 className="w-12 h-12 text-brand-orange animate-spin" />
       </div>
     );
   }
@@ -71,7 +71,7 @@ export default function PortfolioGallery() {
         {items.map((item) => (
           <div 
             key={item.id} 
-            className="glass-card rounded-xl overflow-hidden group cursor-pointer hover:border-brand-blue/30 hover:shadow-card-hover transition-all duration-300"
+            className="glass-card rounded-xl overflow-hidden group cursor-pointer hover:border-brand-orange/30 hover:shadow-card-hover transition-all duration-300"
             onClick={() => setSelectedItem(item)}
           >
             {/* Image Container */}
@@ -90,7 +90,7 @@ export default function PortfolioGallery() {
                   ★ Featured
                 </div>
               )}
-              <div className="absolute inset-0 bg-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-brand-orange/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <ZoomIn className="w-10 h-10 text-white drop-shadow-md" />
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function PortfolioGallery() {
                 {selectedItem.type}
               </span>
               <h2 className="text-2xl font-bold text-white mb-2">{selectedItem.title}</h2>
-              <p className="text-brand-blue font-medium mb-2">{selectedItem.brand}</p>
+              <p className="text-brand-orange font-medium mb-2">{selectedItem.brand}</p>
               {selectedItem.location && (
                 <p className="text-slate-400 text-sm mb-6 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-brand-orange/70"></span>
