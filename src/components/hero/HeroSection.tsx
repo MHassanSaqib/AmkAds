@@ -144,7 +144,7 @@ export default function HeroSection() {
               }}
               className="w-full h-full object-cover object-center absolute inset-0 z-0"
             >
-              <source src="/Hero-Video/hero-showcase.mp4?v=3.0" type="video/mp4" />
+              <source src="/Hero-Video/hero-showcase-v2.mp4" type="video/mp4" />
             </video>
 
             {/* Video Controls overlaying ONLY the video */}
