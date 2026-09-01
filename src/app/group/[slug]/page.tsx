@@ -42,6 +42,15 @@ type MediaItem = {
   title: string;
 }
 
+export function generateStaticParams() {
+  return [
+    { slug: 'digital-marketing' },
+    { slug: 'creative-agency' },
+    { slug: 'event-management' },
+    { slug: 'corporate-services' }
+  ]
+}
+
 export default function DivisionGalleryPage({ params }: { params: { slug: string } }) {
   const [media, setMedia] = useState<MediaItem[]>([])
   const [loading, setLoading] = useState(true)
