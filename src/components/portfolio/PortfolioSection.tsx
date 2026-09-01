@@ -195,7 +195,7 @@ export default function PortfolioSection() {
             href="/portfolio"
             className="btn-primary text-base px-8 py-4 inline-flex items-center gap-2"
           >
-            View Full Portfolio
+            Media Gallery
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>
