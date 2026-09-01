@@ -11,7 +11,7 @@ const ecosystem = [
     desc: 'Full-service digital advertising: social media management, Google Ads, influencer marketing, and performance campaigns integrated with your OOH strategy.',
     services: ['Social Media Ads', 'Google/Meta Campaigns', 'SEO & Content', 'Influencer Outreach'],
     color: 'blue',
-    gradient: 'from-blue-500/20 to-blue-900/10',
+    gradient: 'from-brand-orange/20 to-brand-black/10',
   },
   {
     icon: Brush,
@@ -29,7 +29,7 @@ const ecosystem = [
     desc: 'On-ground activations, brand launches, pop-up experiences, and experiential marketing that bring your OOH campaigns to life face-to-face.',
     services: ['Brand Activations', 'Product Launches', 'Pop-up Experiences', 'Experiential Marketing'],
     color: 'blue',
-    gradient: 'from-blue-500/20 to-blue-900/10',
+    gradient: 'from-brand-orange/20 to-brand-black/10',
   },
   {
     icon: Briefcase,
@@ -74,13 +74,13 @@ export default function GroupSection() {
             <Layers className="w-3.5 h-3.5" />
             The AmkAds Ecosystem
           </div>
-          <h2 className="section-title mb-4">
+          <h2 className="section-title-light mb-4">
             One Group.{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
+            <span className="text-brand-orange">
               Every Solution.
             </span>
           </h2>
-          <p className="section-subtitle mx-auto text-slate-400">
+          <p className="section-subtitle-light">
             AmkAds is more than OOH — we are a full-service communications group
             with specialist arms across digital, creative, events, and corporate branding.
           </p>
@@ -123,13 +123,13 @@ export default function GroupSection() {
                       }`}>
                         {item.tagline}
                       </p>
-                      <h3 className="font-outfit font-bold text-white text-xl group-hover:text-white transition-colors duration-200">
+                      <h3 className="font-outfit font-bold text-brand-black text-xl group-hover:text-brand-black transition-colors duration-200">
                         {item.title}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-slate-400 text-sm leading-relaxed mb-5">{item.desc}</p>
+                  <p className="text-brand-greyMedium text-sm leading-relaxed mb-5">{item.desc}</p>
 
                   {/* Services chips */}
                   <div className="flex flex-wrap gap-2 mb-5">

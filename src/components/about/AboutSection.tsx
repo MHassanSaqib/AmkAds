@@ -28,7 +28,7 @@ export default function AboutSection() {
           </div>
           <h2 className="section-title mb-4">
             Who We{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
+            <span className="text-brand-orange">
               Are
             </span>
           </h2>

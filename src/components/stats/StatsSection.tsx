@@ -60,7 +60,7 @@ function StatCard({
       >
         {count.toLocaleString()}{suffix}
       </div>
-      <p className="text-slate-400 font-medium text-sm uppercase tracking-widest">{label}</p>
+      <p className="font-medium text-sm uppercase tracking-widest text-brand-greyMedium">{label}</p>
     </div>
   )
 }
@@ -90,13 +90,13 @@ export default function StatsSection() {
             <TrendingUp className="w-3.5 h-3.5" />
             Nationwide Reach
           </div>
-          <h2 className="section-title mb-4">
+          <h2 className="section-title-light mb-4">
             Covering Every Corner of{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-blue-400 bg-clip-text text-transparent">
+            <span className="text-brand-orange">
               Pakistan
             </span>
           </h2>
-          <p className="section-subtitle mx-auto text-slate-400">
+          <p className="section-subtitle-light mb-16">
             From metropolitan hubs to emerging markets — our OOH network reaches
             audiences where it matters most.
           </p>
@@ -111,7 +111,7 @@ export default function StatsSection() {
 
         {/* City Grid */}
         <div className="glass-card p-8">
-          <h3 className="font-outfit font-bold text-white text-xl mb-6 flex items-center gap-2">
+          <h3 className="font-outfit font-bold text-xl mb-6 flex items-center gap-2 text-brand-black">
             <MapPin className="w-5 h-5 text-brand-orange" />
             Markets We Operate In
           </h3>

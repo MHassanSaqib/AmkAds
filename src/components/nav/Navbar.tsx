@@ -50,7 +50,7 @@ export default function Navbar() {
                   key={link.label}
                   onClick={() => handleNav(link.href)}
                   className={`relative px-1 py-2 uppercase text-xs tracking-widest font-semibold transition-colors duration-200 ${
-                    isActive ? 'text-amber-600 border-b-2 border-amber-600' : 'text-slate-800 hover:text-amber-600'
+                    isActive ? 'text-brand-orangeHover border-b-2 border-brand-orangeHover' : 'text-slate-800 hover:text-brand-orangeHover'
                   }`}
                 >
                   {link.label}
@@ -63,7 +63,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => handleNav('#contact')}
-              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium shadow-md rounded-lg text-sm px-5 py-2.5 flex items-center gap-1.5 transition-all hover:opacity-90"
+              className="bg-gradient-to-r from-brand-orange to-orange-600 text-white font-medium shadow-md rounded-lg text-sm px-5 py-2.5 flex items-center gap-1.5 transition-all hover:opacity-90"
             >
               Speak to Us
               <ChevronRight className="w-4 h-4" />
@@ -92,16 +92,16 @@ export default function Navbar() {
             <button
               key={link.label}
               onClick={() => handleNav(link.href)}
-              className="w-full text-left px-4 py-3 text-slate-700 hover:text-amber-600 hover:bg-slate-50 rounded-xl transition-all duration-200 font-medium flex items-center justify-between"
+              className="w-full text-left px-4 py-3 text-slate-700 hover:text-brand-orangeHover hover:bg-slate-50 rounded-xl transition-all duration-200 font-medium flex items-center justify-between"
             >
               {link.label}
-              <ChevronRight className="w-4 h-4 text-amber-500" />
+              <ChevronRight className="w-4 h-4 text-brand-orange" />
             </button>
           ))}
           <div className="pt-2 mt-2 border-t border-slate-100">
             <button
               onClick={() => handleNav('#contact')}
-              className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium shadow-md rounded-lg w-full justify-center text-sm px-5 py-3 flex items-center gap-1.5 transition-all hover:opacity-90"
+              className="bg-gradient-to-r from-brand-orange to-orange-600 text-white font-medium shadow-md rounded-lg w-full justify-center text-sm px-5 py-3 flex items-center gap-1.5 transition-all hover:opacity-90"
             >
               Speak to Us
               <ChevronRight className="w-4 h-4" />

@@ -86,7 +86,7 @@ export default function PortfolioGallery() {
                 className="w-auto h-auto max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
               />
               {item.isFeatured === 1 && (
-                <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-lg z-10 flex items-center gap-1">
+                <div className="absolute top-3 right-3 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow-lg z-10 flex items-center gap-1">
                   ★ Featured
                 </div>
               )}
@@ -136,7 +136,7 @@ export default function PortfolioGallery() {
             {/* Modal Image */}
             <div className="flex-1 bg-white/5 p-8 flex items-center justify-center min-h-[300px] md:min-h-[500px] relative">
               {selectedItem.isFeatured === 1 && (
-                <div className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-lg z-10 flex items-center gap-1">
+                <div className="absolute top-4 right-4 bg-brand-orange text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-lg z-10 flex items-center gap-1">
                   ★ Featured
                 </div>
               )}

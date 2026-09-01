@@ -66,7 +66,7 @@ export default function ToolsSection() {
           </div>
           <h2 className="section-title mb-4">
             Next-Gen OOH Tech &{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-blue-400 bg-clip-text text-transparent">
+            <span className="text-brand-orange">
               Tracking Solutions
             </span>
           </h2>

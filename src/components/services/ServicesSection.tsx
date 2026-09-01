@@ -77,13 +77,13 @@ export default function ServicesSection() {
             <Layers className="w-3.5 h-3.5" />
             What We Do
           </div>
-          <h2 className="section-title mb-4">
+          <h2 className="section-title-light mb-4">
             Full-Spectrum{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-orange-400 bg-clip-text text-transparent">
+            <span className="text-brand-orange">
               OOH Services
             </span>
           </h2>
-          <p className="section-subtitle mx-auto text-slate-400">
+          <p className="section-subtitle-light">
             From classic billboards to cutting-edge digital formats — we offer every
             out-of-home touchpoint your brand needs to dominate the streets.
           </p>
@@ -121,15 +121,15 @@ export default function ServicesSection() {
                   </div>
                 </div>
 
-                <h3 className="font-outfit font-bold text-white text-lg mb-3 group-hover:text-brand-orange transition-colors duration-200">
+                <h3 className="font-outfit font-bold text-brand-black text-lg mb-3 group-hover:text-brand-orange transition-colors duration-200">
                   {service.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-grow">{service.desc}</p>
+                <p className="text-brand-greyMedium text-sm leading-relaxed mb-5 flex-grow">{service.desc}</p>
 
                 {/* Highlights */}
                 <ul className="space-y-1.5 mb-5">
                   {service.highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2 text-slate-300 text-xs">
+                    <li key={h} className="flex items-center gap-2 text-brand-greyMedium text-xs">
                       <CheckCircle2
                         className={`w-4 h-4 flex-shrink-0 ${
                           service.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'

@@ -111,7 +111,7 @@ export default function HeroSection() {
         <div className="relative mb-16">
           
           {/* Dynamic Ambient Reflection & Lighting */}
-          <div className="absolute -inset-2 bg-blue-500/15 rounded-[32px] blur-3xl -z-10" />
+          <div className="absolute -inset-2 bg-brand-orange/15 rounded-[32px] blur-3xl -z-10" />
           
           {/* Video Bounds Container */}
           <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[24px] overflow-hidden shadow-2xl bg-slate-900 border border-slate-800">
@@ -144,7 +144,7 @@ export default function HeroSection() {
               }}
               className="w-full h-full object-cover object-center absolute inset-0 z-0"
             >
-              <source src="/Hero-Video/hero-showcase-v2.mp4" type="video/mp4" />
+              <source src="/Hero-Video/hero-video.mp4" type="video/mp4" />
             </video>
 
             {/* Video Controls overlaying ONLY the video */}
@@ -179,15 +179,15 @@ export default function HeroSection() {
             className="flex flex-col items-center text-center mt-4"
           >
              {/* Pre-label */}
-             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-slate-900 border border-blue-500/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-blue-400 uppercase mb-6 shadow-xl">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-slate-900 border border-brand-orange/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-brand-orange uppercase mb-6 shadow-xl">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
                 Pakistan's Premier OOH Advertising Agency
              </motion.div>
              
              {/* Headline */}
              <motion.h1 variants={itemVariants} className="font-outfit font-black text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight text-white mb-6">
                 Leading{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-sm">
+                <span className="bg-gradient-to-r from-brand-orange via-brand-orange to-brand-orangeHover bg-clip-text text-transparent drop-shadow-sm">
                   Out of Home
                 </span>
                 <br />
@@ -201,13 +201,13 @@ export default function HeroSection() {
              {/* Subtitle */}
              <motion.p variants={itemVariants} className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10 font-light drop-shadow-md">
                 Nationwide presence across{' '}
-                <span className="text-blue-400 font-semibold">50+ cities</span>,
+                <span className="text-brand-orange font-semibold">50+ cities</span>,
                 cutting-edge planning toolkits, and end-to-end campaign management —
                 from strategy to execution to analytics.
              </motion.p>
              
              {/* Divider */}
-             <motion.div variants={itemVariants} className="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mb-16 opacity-50"></motion.div>
+             <motion.div variants={itemVariants} className="w-24 h-1 bg-gradient-to-r from-brand-orange to-orange-500 rounded-full mb-16 opacity-50"></motion.div>
           </motion.div>
 
           {/* ── Showcase Section ── */}
@@ -219,15 +219,15 @@ export default function HeroSection() {
             className="flex flex-col items-center text-center"
           >
              {/* Badge */}
-             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-slate-900 border border-blue-500/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-blue-400 uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-slate-900 border border-brand-orange/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-brand-orange uppercase mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
                 OOH MEDIA SHOWCASE
              </motion.div>
              
              {/* Heading */}
              <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
                Elevate Your <br className="hidden sm:block" />
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Brand Presence</span>
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orangeHover">Brand Presence</span>
              </motion.h1>
              
              {/* Description */}
@@ -254,7 +254,7 @@ export default function HeroSection() {
                 >
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-5 ${
                     pillar.color === 'blue' 
-                      ? 'bg-blue-500/20 text-blue-400' 
+                      ? 'bg-brand-orange/20 text-brand-orange' 
                       : 'bg-orange-500/20 text-orange-400'
                   }`}>
                     <Icon className="w-5 h-5" />

@@ -56,10 +56,10 @@ export default function Footer() {
       <div className="relative z-10 bg-brand-greyLight bg-gradient-to-r from-brand-orange/20 via-brand-orange/10 to-brand-orange/10 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h3 className="font-outfit font-bold text-white text-xl">
+            <h3 className="font-outfit font-bold text-brand-black text-xl">
               Ready to launch your next OOH campaign?
             </h3>
-            <p className="text-slate-400 text-sm mt-1">
+            <p className="text-brand-greyMedium text-sm mt-1">
               Speak to our media specialists today.
             </p>
           </div>
@@ -94,9 +94,9 @@ export default function Footer() {
                 <a
                   key={text}
                   href={href}
-                  className="flex items-center gap-2.5 text-slate-700 hover:text-amber-600 text-sm transition-colors duration-200"
+                  className="flex items-center gap-2.5 text-slate-700 hover:text-brand-orangeHover text-sm transition-colors duration-200"
                 >
-                  <Icon className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                  <Icon className="w-4 h-4 text-brand-orange flex-shrink-0" />
                   {text}
                 </a>
               ))}
@@ -109,7 +109,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg border border-slate-300 text-slate-700 hover:border-amber-500 hover:text-amber-600 bg-white flex items-center justify-center transition-all duration-200 shadow-sm"
+                  className="w-9 h-9 rounded-lg border border-slate-300 text-slate-700 hover:border-brand-orange hover:text-brand-orangeHover bg-white flex items-center justify-center transition-all duration-200 shadow-sm"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -134,9 +134,9 @@ export default function Footer() {
                           handleNav(href)
                         }
                       }}
-                      className="text-slate-600 hover:text-amber-600 text-sm transition-colors duration-200 hover:translate-x-1 inline-flex items-center gap-1 group"
+                      className="text-slate-600 hover:text-brand-orangeHover text-sm transition-colors duration-200 hover:translate-x-1 inline-flex items-center gap-1 group"
                     >
-                      <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-amber-500">›</span>
+                      <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-brand-orange">›</span>
                       {label}
                     </a>
                   </li>

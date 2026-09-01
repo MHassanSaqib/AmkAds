@@ -251,7 +251,7 @@ export default function AdminPortfolioPage() {
           <div className="flex items-center gap-3">
             <button 
               onClick={() => handleOpenModal()}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors whitespace-nowrap"
+              className="flex items-center gap-2 bg-brand-orangeHover hover:bg-brand-orange text-white px-5 py-2.5 rounded-lg font-medium transition-colors whitespace-nowrap"
             >
               <Plus size={20} />
               Add New Campaign
@@ -275,7 +275,7 @@ export default function AdminPortfolioPage() {
               placeholder="Search by title, brand, or category..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all"
+              className="w-full bg-slate-900 border border-slate-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all"
             />
           </div>
           <div className="flex items-center gap-2 sm:w-64">
@@ -283,7 +283,7 @@ export default function AdminPortfolioPage() {
             <select 
               value={sortBy} 
               onChange={(e) => setSortBy(e.target.value)}
-              className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all"
+              className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all"
             >
               <option value="newest">Sort by Newest</option>
               <option value="oldest">Sort by Oldest</option>
@@ -294,7 +294,7 @@ export default function AdminPortfolioPage() {
 
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="animate-spin text-blue-500" size={40} />
+            <Loader2 className="animate-spin text-brand-orange" size={40} />
           </div>
         ) : items.length === 0 ? (
           <div className="bg-slate-800 rounded-xl p-12 text-center border border-slate-700 flex flex-col items-center">
@@ -303,7 +303,7 @@ export default function AdminPortfolioPage() {
             </div>
             <h3 className="text-xl font-medium text-slate-300 mb-2">No campaigns found</h3>
             <p className="text-slate-500 mb-6 max-w-md">Your portfolio is currently empty. Start by uploading your first OOH advertising campaign image.</p>
-            <button onClick={() => handleOpenModal()} className="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-md transition-colors text-white">Upload Image</button>
+            <button onClick={() => handleOpenModal()} className="bg-brand-orangeHover hover:bg-brand-orange px-6 py-2 rounded-md transition-colors text-white">Upload Image</button>
           </div>
         ) : (
           <div className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-xl">
@@ -330,7 +330,7 @@ export default function AdminPortfolioPage() {
                         <div className="relative w-20 h-14 rounded overflow-hidden bg-slate-900 flex items-center justify-center">
                           <img src={item.imageSrc} alt={item.altText || item.title} className="object-cover w-full h-full" />
                           {item.isFeatured === 1 && (
-                            <div className="absolute top-1 right-1 bg-amber-500 rounded-full p-0.5" title="Featured">
+                            <div className="absolute top-1 right-1 bg-brand-orange rounded-full p-0.5" title="Featured">
                               <Star className="w-3 h-3 text-white fill-white" />
                             </div>
                           )}
@@ -339,7 +339,7 @@ export default function AdminPortfolioPage() {
                       <td className="p-4">
                         <div className="font-medium text-white mb-1 flex items-center gap-2">
                           {item.title}
-                          {item.isFeatured === 1 && <span className="bg-amber-500/20 text-amber-500 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Featured</span>}
+                          {item.isFeatured === 1 && <span className="bg-brand-orange/20 text-brand-orange text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Featured</span>}
                         </div>
                         <div className="text-xs text-slate-400">{item.brand}</div>
                       </td>
@@ -349,7 +349,7 @@ export default function AdminPortfolioPage() {
                       <td className="p-4 text-right space-x-2">
                         <button 
                           onClick={() => handleOpenModal(item)}
-                          className="p-2 text-slate-400 hover:text-blue-400 hover:bg-slate-800 rounded transition-all opacity-0 group-hover:opacity-100"
+                          className="p-2 text-slate-400 hover:text-brand-orange hover:bg-slate-800 rounded transition-all opacity-0 group-hover:opacity-100"
                           title="Edit"
                         >
                           <Edit2 size={18} />
@@ -389,15 +389,15 @@ export default function AdminPortfolioPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Campaign Title</label>
-                    <input required type="text" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all" placeholder="e.g. Mega Summer Display" />
+                    <input required type="text" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all" placeholder="e.g. Mega Summer Display" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Brand Name</label>
-                    <input required type="text" value={formData.brand} onChange={e => setFormData({...formData, brand: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all" placeholder="e.g. Acme Corp" />
+                    <input required type="text" value={formData.brand} onChange={e => setFormData({...formData, brand: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all" placeholder="e.g. Acme Corp" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Category / Type</label>
-                    <select required value={formData.type} onChange={e => setFormData({...formData, type: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all">
+                    <select required value={formData.type} onChange={e => setFormData({...formData, type: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all">
                       <option value="BILLBOARD">Billboard</option>
                       <option value="LARGE FORMAT BILLBOARD">Large Format</option>
                       <option value="ILLUMINATED BILLBOARD">Illuminated</option>
@@ -409,18 +409,18 @@ export default function AdminPortfolioPage() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Location</label>
-                    <input type="text" value={formData.location} onChange={e => setFormData({...formData, location: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all" placeholder="e.g. Main GT Road, Lahore" />
+                    <input type="text" value={formData.location} onChange={e => setFormData({...formData, location: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all" placeholder="e.g. Main GT Road, Lahore" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Display Order</label>
-                    <input type="number" value={formData.displayOrder} onChange={e => setFormData({...formData, displayOrder: parseInt(e.target.value) || 0})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all" placeholder="0" />
+                    <input type="number" value={formData.displayOrder} onChange={e => setFormData({...formData, displayOrder: parseInt(e.target.value) || 0})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all" placeholder="0" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Feature Status</label>
                     <div className="flex items-center mt-2">
                       <label className="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" className="sr-only peer" checked={formData.isFeatured} onChange={e => setFormData({...formData, isFeatured: e.target.checked})} />
-                        <div className="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-orangeHover"></div>
                         <span className="ml-3 text-sm font-medium text-slate-300">Highlight in Gallery</span>
                       </label>
                     </div>
@@ -429,22 +429,22 @@ export default function AdminPortfolioPage() {
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-slate-300">Alt Text (SEO)</label>
-                  <input type="text" value={formData.altText} onChange={e => setFormData({...formData, altText: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 transition-all" placeholder="Brief description of image for screen readers..." />
+                  <input type="text" value={formData.altText} onChange={e => setFormData({...formData, altText: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-all" placeholder="Brief description of image for screen readers..." />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-slate-300">Description</label>
-                  <textarea required value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all min-h-[80px]" placeholder="Detailed description of the campaign placement..." />
+                  <textarea required value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-all min-h-[80px]" placeholder="Detailed description of the campaign placement..." />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-slate-300">Media Upload</label>
-                  <label className="relative flex flex-col items-center justify-center w-full h-48 border-2 border-slate-700 border-dashed rounded-xl cursor-pointer bg-slate-900/50 hover:bg-slate-800/80 hover:border-blue-500/50 transition-all overflow-hidden group">
+                  <label className="relative flex flex-col items-center justify-center w-full h-48 border-2 border-slate-700 border-dashed rounded-xl cursor-pointer bg-slate-900/50 hover:bg-slate-800/80 hover:border-brand-orange/50 transition-all overflow-hidden group">
                     {imagePreview ? (
                       <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                     ) : (
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        <UploadCloud className="w-10 h-10 mb-3 text-slate-400 group-hover:text-blue-400 transition-colors" />
+                        <UploadCloud className="w-10 h-10 mb-3 text-slate-400 group-hover:text-brand-orange transition-colors" />
                         <p className="mb-2 text-sm text-slate-400"><span className="font-semibold text-white">Click to upload</span> or drag and drop</p>
                         <p className="text-xs text-slate-500">JPG, PNG or WEBP (Max 5MB)</p>
                       </div>
@@ -460,7 +460,7 @@ export default function AdminPortfolioPage() {
 
                 <div className="flex justify-end gap-3 pt-4 border-t border-slate-700">
                   <button type="button" onClick={handleCloseModal} className="px-5 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors font-medium">Cancel</button>
-                  <button type="submit" disabled={isSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors font-medium disabled:opacity-50">
+                  <button type="submit" disabled={isSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-brand-orangeHover hover:bg-brand-orange text-white transition-colors font-medium disabled:opacity-50">
                     {isSaving ? <Loader2 className="animate-spin" size={18} /> : (editingItem ? 'Save Changes' : 'Upload Campaign')}
                   </button>
                 </div>
