@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react'
-import { Plus, Edit2, Trash2, X, UploadCloud, Loader2, Search, ArrowUpDown, Star, LogOut } from 'lucide-react'
+import { Plus, Edit2, Trash2, X, UploadCloud, Loader2, Search, ArrowUpDown, Star, LogOut, Image as ImageIcon } from 'lucide-react'
 import toast, { Toaster } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 
@@ -248,7 +248,14 @@ export default function AdminPortfolioPage() {
               <p className="text-slate-400">Manage your out-of-home advertising campaigns dynamically.</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <button 
+              onClick={() => router.push('/admin/division-media')}
+              className="flex items-center gap-2 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors whitespace-nowrap"
+            >
+              <ImageIcon size={20} />
+              Manage Division Galleries
+            </button>
             <button 
               onClick={() => handleOpenModal()}
               className="flex items-center gap-2 bg-brand-orangeHover hover:bg-brand-orange text-white px-5 py-2.5 rounded-lg font-medium transition-colors whitespace-nowrap"

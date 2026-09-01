@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Globe, Brush, Calendar, Briefcase, ArrowRight, Layers } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -12,6 +13,7 @@ const ecosystem = [
     services: ['Social Media Ads', 'Google/Meta Campaigns', 'SEO & Content', 'Influencer Outreach'],
     color: 'blue',
     gradient: 'from-brand-orange/20 to-brand-black/10',
+    slug: 'digital-marketing',
   },
   {
     icon: Brush,
@@ -21,6 +23,7 @@ const ecosystem = [
     services: ['Graphic Design', '3D Anamorphic Art', 'Copywriting', 'Print Production'],
     color: 'amber',
     gradient: 'from-orange-500/20 to-orange-900/10',
+    slug: 'creative-agency',
   },
   {
     icon: Calendar,
@@ -30,6 +33,7 @@ const ecosystem = [
     services: ['Brand Activations', 'Product Launches', 'Pop-up Experiences', 'Experiential Marketing'],
     color: 'blue',
     gradient: 'from-brand-orange/20 to-brand-black/10',
+    slug: 'event-management',
   },
   {
     icon: Briefcase,
@@ -39,6 +43,7 @@ const ecosystem = [
     services: ['Corporate Branding', 'Office Signage', 'Wayfinding Systems', 'B2B Media Planning'],
     color: 'amber',
     gradient: 'from-orange-500/20 to-orange-900/10',
+    slug: 'corporate-services',
   },
 ]
 
@@ -147,15 +152,15 @@ export default function GroupSection() {
                     ))}
                   </div>
 
-                  <button
-                    onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link
+                    href={`/group/${item.slug}`}
                     className={`flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group/btn ${
                       item.color === 'blue' ? 'text-brand-orange' : 'text-brand-orange'
                     }`}
                   >
-                    Explore Service
+                    Explore Gallery
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             )

@@ -160,6 +160,20 @@ app.get('/api/service-videos', async (c) => {
   }
 })
 
+// Get Division Media (Public)
+app.get('/api/division-media/:slug', async (c) => {
+  const slug = c.req.param('slug')
+  try {
+    const { results } = await c.env.DB.prepare(
+      'SELECT * FROM division_media WHERE division_slug = ? ORDER BY sort_order ASC, uploaded_at DESC'
+    ).bind(slug).all()
+    return c.json(results)
+  } catch (err: any) {
+    if (err.message && err.message.includes('no such table')) return c.json([])
+    return c.json({ error: 'Failed to fetch division media' }, 500)
+  }
+})
+
 // Serve Media (R2)
 app.get('/media/*', async (c) => {
   const url = new URL(c.req.url)
@@ -189,6 +203,7 @@ app.get('/media/*', async (c) => {
 app.use('/api/portfolio', authMiddleware)
 app.use('/api/portfolio/*', authMiddleware)
 app.use('/api/admin/service-videos/*', authMiddleware)
+app.use('/api/admin/division-media/*', authMiddleware)
 
 // Create Portfolio Item
 app.post('/api/portfolio', async (c) => {
@@ -322,6 +337,68 @@ app.delete('/api/admin/service-videos/:slug', async (c) => {
     }
 
     await c.env.DB.prepare('DELETE FROM service_videos WHERE service_slug = ?').bind(slug).run()
+    return c.json({ success: true })
+  } catch (error: any) {
+    return c.json({ error: 'Internal server error' }, 500)
+  }
+})
+
+// Upload Division Media
+app.post('/api/admin/division-media/:slug', async (c) => {
+  const slug = c.req.param('slug')
+  try {
+    const formData = await c.req.formData()
+    const file = formData.get('file') as File
+    const title = formData.get('title') as string || ''
+
+    if (!file) {
+      return c.json({ error: 'No file uploaded' }, 400)
+    }
+
+    const type = file.type.startsWith('video/') ? 'video' : file.type.startsWith('image/') ? 'image' : null
+    if (!type) {
+      return c.json({ error: 'Invalid file type. Only images and videos are allowed.' }, 400)
+    }
+
+    const timestamp = Date.now()
+    const extension = file.name.split('.').pop() || (type === 'video' ? 'mp4' : 'jpg')
+    const mediaKey = `division-media/${slug}/${timestamp}.${extension}`
+
+    await c.env.MEDIA_BUCKET.put(mediaKey, file.stream(), {
+      httpMetadata: { contentType: file.type },
+    })
+
+    const origin = new URL(c.req.url).origin
+    const mediaUrl = `${origin}/media/${mediaKey}`
+    const now = new Date().toISOString()
+
+    // Get max sort order
+    const maxSort = await c.env.DB.prepare('SELECT MAX(sort_order) as maxSort FROM division_media WHERE division_slug = ?').bind(slug).first<{maxSort: number}>()
+    const nextSort = (maxSort?.maxSort ?? -1) + 1
+
+    const result = await c.env.DB.prepare(`
+      INSERT INTO division_media (division_slug, media_type, media_key, media_url, title, sort_order, uploaded_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      RETURNING id
+    `).bind(slug, type, mediaKey, mediaUrl, title, nextSort, now).first<{id: number}>()
+
+    return c.json({ success: true, id: result?.id, mediaUrl })
+  } catch (error: any) {
+    return c.json({ error: 'Internal server error' }, 500)
+  }
+})
+
+// Delete Division Media
+app.delete('/api/admin/division-media/:id', async (c) => {
+  const id = c.req.param('id')
+  try {
+    const existing = await c.env.DB.prepare('SELECT media_key FROM division_media WHERE id = ?').bind(id).first<{media_key: string}>()
+    
+    if (existing && existing.media_key) {
+      await c.env.MEDIA_BUCKET.delete(existing.media_key)
+    }
+
+    await c.env.DB.prepare('DELETE FROM division_media WHERE id = ?').bind(id).run()
     return c.json({ success: true })
   } catch (error: any) {
     return c.json({ error: 'Internal server error' }, 500)
